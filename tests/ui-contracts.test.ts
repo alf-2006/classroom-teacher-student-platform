@@ -28,7 +28,7 @@ describe('query errors must not look like empty state', () => {
   it('raises failure for an error result', async () => {
     await expect(
       checkedQuery(Promise.resolve({ data: null, error: { code: '42501' } })),
-    ).rejects.toThrow('تعذر تحميل البيانات')
+    ).rejects.toThrow('مش قادرين نحمّل البيانات')
   })
   it('preserves thrown network failures', async () => {
     await expect(checkedQuery(Promise.reject(new Error('network failure')))).rejects.toThrow(

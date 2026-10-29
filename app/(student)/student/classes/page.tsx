@@ -27,7 +27,7 @@ export default async function StudentClassesPage() {
   return (
     <>
       <PageHeader
-        description="تظهر هنا الفصول التي انضممت إليها بشكل نشط عبر دعوة صالحة."
+        description="دي الفصول اللي دخلتها بدعوة، ولسه عضويتك فيها شغّالة."
         title="فصولي"
       />
       {classes?.length ? (
@@ -39,21 +39,21 @@ export default async function StudentClassesPage() {
               </span>
               <div className="mt-5 flex items-start justify-between gap-3">
                 <h2 className="text-lg font-semibold">{item.name}</h2>
-                <StatusPill status="نشط" />
+                <StatusPill status="شغّال" />
               </div>
               <p className="mt-2 min-h-12 text-sm text-muted">
-                {item.description || 'لا يوجد وصف إضافي لهذا الفصل.'}
+                {item.description || 'مفيش كلمتين زيادة عن الفصل ده.'}
               </p>
               <p className="mt-5 border-t border-border pt-4 text-xs font-bold text-muted">
-                انضممت في {formatArabicDate(membershipMap.get(item.id)!.joined_at)}
+                دخلت الفصل يوم {formatArabicDate(membershipMap.get(item.id)!.joined_at)}
               </p>
             </article>
           ))}
         </div>
       ) : (
         <EmptyState
-          description="استخدم رابط الدعوة الذي أرسله المدرس للانضمام إلى أول فصل."
-          title="لا توجد فصول نشطة"
+          description="لينك المدرس هو تذكرتك لأول فصل. افتحه وانضم."
+          title="لسه مفيش فصول عندك"
         />
       )}
     </>

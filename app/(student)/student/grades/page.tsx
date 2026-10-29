@@ -17,10 +17,7 @@ export default async function StudentGradesPage() {
   )
   return (
     <>
-      <PageHeader
-        description="هذه الصفحة لا تعرض سوى الدرجات التي قرر المدرس نشرها لك."
-        title="درجاتي"
-      />
+      <PageHeader description="هنا درجاتك اللي المدرس قرر ينزّلها ليك." title="درجاتي" />
       {grades?.length ? (
         <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
           {grades.map((grade) => (
@@ -33,18 +30,18 @@ export default async function StudentGradesPage() {
                 <span className="text-base text-muted"> / {grade.max_score}</span>
               </p>
               <p className="mt-2 text-sm leading-6 text-muted">
-                {grade.feedback || 'لا توجد ملاحظات إضافية.'}
+                {grade.feedback || 'مفيش ملاحظات زيادة.'}
               </p>
               <p className="mt-5 border-t border-border pt-4 text-xs font-bold text-muted">
-                نُشرت {formatArabicDate(grade.published_at!)}
+                اتنشرت {formatArabicDate(grade.published_at!)}
               </p>
             </article>
           ))}
         </div>
       ) : (
         <EmptyState
-          description="لا توجد درجات منشورة لك حاليًا. لن ترى الدرجات قبل أن يتيحها المدرس."
-          title="لا توجد درجات منشورة"
+          description="لسه مفيش درجات نازلة ليك. هتشوفها لما المدرس ينشرها."
+          title="لسه مفيش درجات نازلة"
         />
       )}
     </>

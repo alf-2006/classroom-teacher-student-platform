@@ -7,8 +7,8 @@ export default function AiSettingsPage() {
   return (
     <>
       <PageHeader
-        description="إعدادات الذكاء الاصطناعي لا تُفعّل إلا بعد إدخال مفتاح مزود عبر متغيرات خادمية محمية."
-        title="إعدادات AI"
+        description="الذكاء الاصطناعي مش هيشتغل غير لما نضيف مفتاح الخدمة على السيرفر بأمان."
+        title="ظبّط الذكاء الاصطناعي"
       />
       <div className="grid gap-5 lg:grid-cols-3">
         <Card className="lg:col-span-2">
@@ -17,26 +17,26 @@ export default function AiSettingsPage() {
               <Bot aria-hidden="true" size={22} />
             </span>
             <div>
-              <h2 className="text-lg font-black">تصحيح المقالات بمراجعة المدرس</h2>
+              <h2 className="text-lg font-black">الذكاء الاصطناعي يقترح، والمدرس يراجع</h2>
               <p className="text-sm text-muted">
-                عند تفعيل المزود، ينتج النظام اقتراحًا فقط ولا ينشر درجة تلقائيًا.
+                لما الخدمة تتفعّل، هتديك اقتراح بس. مفيش درجة هتنزل لوحدها.
               </p>
             </div>
           </div>
           <div className="mt-6 rounded-xl border border-border bg-surface-subtle p-4 text-sm leading-7 text-muted">
-            لا يوجد مزود AI مفعّل في هذه البيئة حتى الآن. تتطلب خطوة التفعيل مفتاحًا خادميًا ومفتاح
-            تشفير للمفاتيح المخزنة، ثم اختبار اتصال ومراجعة النموذج المختار.
+            لسه مفيش خدمة ذكاء اصطناعي شغّالة هنا. محتاجين مفتاح للخدمة ومفتاح لتشفير البيانات،
+            وبعدها نختبر الاتصال والموديل اللي اخترته.
           </div>
         </Card>
         <Card>
           <KeyRound aria-hidden="true" className="text-primary-700" size={22} />
-          <h2 className="mt-4 font-black">المفاتيح لا تذهب للمتصفح</h2>
+          <h2 className="mt-4 font-black">مفتاح الخدمة مش بيظهر في المتصفح</h2>
           <p className="mt-2 text-sm leading-7 text-muted">
-            يُحفظ المفتاح في طبقة خادمية فقط ولا يظهر مجددًا في الواجهة أو السجل.
+            المفتاح بيتحفظ على السيرفر بس، ومش بيظهر تاني في الواجهة أو السجل.
           </p>
           <div className="mt-5 flex items-center gap-2 text-xs font-bold text-[var(--success-600)]">
             <ShieldCheck aria-hidden="true" size={16} />
-            مطلوب قبل التفعيل
+            محتاجين ده قبل التشغيل
           </div>
         </Card>
       </div>

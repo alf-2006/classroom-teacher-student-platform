@@ -20,8 +20,8 @@ export default async function QuizzesPage() {
   return (
     <>
       <PageHeader
-        description="كل نشر يرتبط بنسخة اختبار محددة. بيانات الإجابة لا تُتاح للطالب عبر القراءة المباشرة."
-        title="الاختبارات"
+        description="كل نشر بيحفظ نسخة من الكويز. والإجابات النموذجية بتفضل خاصة، مش مكشوفة للطالب."
+        title="الكويزات"
       />
       {quizzes?.length ? (
         <div className="grid gap-4 md:grid-cols-2">
@@ -34,29 +34,29 @@ export default async function QuizzesPage() {
                 <StatusPill
                   status={
                     item.status === 'published'
-                      ? 'منشور'
+                      ? 'اتنشر'
                       : item.status === 'draft'
-                        ? 'مسودة'
-                        : 'مؤرشف'
+                        ? 'لسه بتتجهّز'
+                        : 'في الأرشيف'
                   }
                 />
               </div>
               <h2 className="mt-5 font-semibold">{item.title}</h2>
               <p className="mt-2 min-h-12 text-sm text-muted">
-                {item.description || 'لا يوجد وصف للاختبار.'}
+                {item.description || 'لسه مفيش وصف للكويز ده.'}
               </p>
               <p className="mt-5 border-t border-border pt-4 text-xs font-bold text-muted">
                 {item.published_at
-                  ? `نُشر ${formatArabicDate(item.published_at)}`
-                  : `مسودة منذ ${formatArabicDate(item.created_at)}`}
+                  ? `اتنشر ${formatArabicDate(item.published_at)}`
+                  : `لسه بتتجهّز من ${formatArabicDate(item.created_at)}`}
               </p>
             </article>
           ))}
         </div>
       ) : (
         <EmptyState
-          description="استورد JSON واحدًا أو أنشئ اختبارًا من المحرر. سيحفظ النشر نسخة لا تتغير للمحاولات."
-          title="لا توجد اختبارات بعد"
+          description="رفع JSON وتجهيز الكويز لسه بيتجهّزوا. النشر هيحفظ نسخة ثابتة للمحاولات."
+          title="لسه مفيش كويزات. أول واحد مستنيك"
         />
       )}
     </>

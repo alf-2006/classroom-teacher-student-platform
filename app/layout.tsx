@@ -20,18 +20,18 @@ const latin = Manrope({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Classroom | مساحة تدريس منظمة',
+    default: 'Classroom | فصلك مترتّب ودماغك أروق',
     template: '%s | Classroom',
   },
-  description: 'منصة عربية منظمة لإدارة الفصول والواجبات والاختبارات.',
+  description: 'فصول وواجبات وكويزات في مكان واحد. كلام مصري خفيف، وشغل متظبّط للمدرس والطالب.',
 }
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="ar" dir="rtl" suppressHydrationWarning>
+    <html lang="ar-EG" dir="rtl" suppressHydrationWarning>
       <body className={`${arabic.variable} ${latin.variable}`}>
         <a className="skip-link" href="#main-content">
-          الانتقال إلى المحتوى الرئيسي
+          روح لمحتوى الصفحة
         </a>
         {children}
       </body>

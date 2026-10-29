@@ -1,0 +1,80 @@
+{
+  "results": [
+    {
+      "route": "/",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/login",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/login",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/register",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/register",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/invite/review-invite-token",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/invite/review-invite-token",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/missing-page-review",
+      "width": 375,
+      "status": 404,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/missing-page-review",
+      "width": 1280,
+      "status": 404,
+      "overflow": false,
+      "violations": []
+    }
+  ],
+  "errors": [],
+  "egyptianValidation": true,
+  "passwordConfirmation": true,
+  "passwordToggle": true,
+  "createdSupabaseAccount": false,
+  "protectedWorkspaces": "source-only review; auth provider still pending"
+}

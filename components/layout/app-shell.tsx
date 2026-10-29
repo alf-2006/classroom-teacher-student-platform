@@ -53,7 +53,7 @@ function Brand({ role, compact = false }: { role: 'teacher' | 'student'; compact
           Classroom.
         </span>
         {!compact ? (
-          <span className="block text-xs text-muted">تعليم منظّم. تفاصيل بتفرق.</span>
+          <span className="block text-xs text-muted">فصلك مترتّب، ودماغك أروق.</span>
         ) : null}
       </span>
     </Link>

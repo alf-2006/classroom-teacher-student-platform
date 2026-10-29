@@ -20,7 +20,7 @@ export default async function AssignmentsPage() {
   return (
     <>
       <PageHeader
-        description="الواجبات المنشورة تظهر فقط لطلاب الفصول المرتبطة بها، وتسليماتهم تبقى خاصة."
+        description="الواجب بيظهر لطلبة فصوله بس. والتسليمات بتفضل خاصة بالطالب وبالمدرس."
         title="الواجبات"
       />
       {assignments?.length ? (
@@ -37,22 +37,22 @@ export default async function AssignmentsPage() {
                 <div>
                   <h2 className="font-semibold">{item.title}</h2>
                   <p className="mt-1 line-clamp-2 text-sm text-muted">
-                    {item.details || 'لا توجد تعليمات إضافية.'}
+                    {item.details || 'مفيش تعليمات زيادة.'}
                   </p>
                   <p className="mt-2 text-xs font-bold text-muted">
                     {item.published_at
-                      ? `نُشر ${formatArabicDate(item.published_at)}`
-                      : `أنشئ ${formatArabicDate(item.created_at)}`}
+                      ? `اتنشر ${formatArabicDate(item.published_at)}`
+                      : `اتعمل ${formatArabicDate(item.created_at)}`}
                   </p>
                 </div>
               </div>
               <StatusPill
                 status={
                   item.status === 'published'
-                    ? 'منشور'
+                    ? 'اتنشر'
                     : item.status === 'draft'
-                      ? 'مسودة'
-                      : 'مؤرشف'
+                      ? 'لسه بتتجهّز'
+                      : 'في الأرشيف'
                 }
               />
             </article>
@@ -60,8 +60,8 @@ export default async function AssignmentsPage() {
         </div>
       ) : (
         <EmptyState
-          description="عند إنشاء أول واجب ستحدد الفصول المستهدفة، ويظهر للطالب فقط بعد النشر."
-          title="لا توجد واجبات بعد"
+          description="لما تعمل واجب، هتختار فصوله. الطلبة مش هيشوفوه غير لما تنشره."
+          title="لسه مفيش واجبات. الهدوء قبل المذاكرة!"
         />
       )}
     </>

@@ -21,7 +21,7 @@ export function InviteJoinCard({ token }: { token: string }) {
         if (active) setSignedIn(Boolean(data.user))
       })
       .catch(() => {
-        if (active) setMessage('تعذر التحقق من الجلسة. حاول تسجيل الدخول مجددًا.')
+        if (active) setMessage('مش قادرين نتأكد إنك داخل حسابك. ادخل تاني وجرب.')
       })
       .finally(() => {
         if (active) setReady(true)
@@ -39,13 +39,15 @@ export function InviteJoinCard({ token }: { token: string }) {
         raw_token: token,
       })
       if (error) {
-        setMessage('تعذر الانضمام بهذه الدعوة. قد تكون منتهية أو غير صالحة أو أن الفصل مكتمل.')
+        setMessage(
+          'الدعوة دي مش شغّالة دلوقتي. ممكن تكون انتهت أو الفصل اتملّى. اطلب لينك جديد من المدرس.',
+        )
         return
       }
       setJoined(true)
-      setMessage('تم الانضمام إلى الفصل بنجاح.')
+      setMessage('تمام! بقيت معانا في الفصل. نورت مكانك.')
     } catch {
-      setMessage('تعذر الاتصال. تحقق من الإنترنت وحاول مرة أخرى.')
+      setMessage('الاتصال فصل. اطّمن على النت وجرّب تاني.')
     } finally {
       setPending(false)
     }
@@ -53,15 +55,15 @@ export function InviteJoinCard({ token }: { token: string }) {
   if (!ready)
     return (
       <div className="surface-card p-8 text-center text-muted" role="status">
-        جارٍ التحقق من الجلسة…
+        بنتأكد إنك داخل حسابك…
       </div>
     )
   if (!signedIn)
     return (
       <div className="surface-card p-7 text-center">
-        <h2 className="text-xl font-semibold leading-relaxed">أنشئ حسابًا أو سجّل الدخول أولًا</h2>
+        <h2 className="text-xl font-semibold leading-relaxed">اعمل حساب أو ادخل حسابك الأول</h2>
         <p className="mt-3 text-sm leading-7 text-muted">
-          نربط الدعوة بحساب الطالب حتى تبقى بيانات الفصل خاصة.
+          بنربط الدعوة بحسابك عشان بيانات الفصل تفضل خاصة.
         </p>
         {message ? (
           <p role="alert" className="mt-4 text-sm text-[var(--warning-600)]">
@@ -74,14 +76,14 @@ export function InviteJoinCard({ token }: { token: string }) {
             href={`/register?next=${next}`}
           >
             <UserPlus aria-hidden="true" size={18} />
-            إنشاء حساب
+            اعمل حساب
           </Link>
           <Link
             className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-border px-4 py-3 text-sm font-semibold text-foreground"
             href={`/login?next=${next}`}
           >
             <LogIn aria-hidden="true" size={18} />
-            تسجيل الدخول
+            ادخل حسابك
           </Link>
         </div>
       </div>
@@ -89,10 +91,10 @@ export function InviteJoinCard({ token }: { token: string }) {
   return (
     <div className="surface-card p-7">
       <h2 className="text-xl font-semibold leading-relaxed">
-        {joined ? 'أصبح الفصل ضمن فصولك' : 'أنت جاهز للانضمام'}
+        {joined ? 'الفصل بقى عندك' : 'جاهز تدخل الفصل؟'}
       </h2>
       <p className="mt-2 text-sm leading-7 text-muted">
-        سيتم التحقق من صلاحية الدعوة وسعة الفصل لحظة تنفيذ الانضمام.
+        قبل ما تدخل، بنتأكد إن الدعوة شغّالة وفي مكان فاضي في الفصل.
       </p>
       {message ? (
         <p
@@ -107,12 +109,12 @@ export function InviteJoinCard({ token }: { token: string }) {
           className="mt-6 inline-flex min-h-12 items-center rounded-xl bg-primary-600 px-5 text-sm font-semibold text-white"
           href="/student/dashboard"
         >
-          فتح لوحة الطالب
+          شوف مساحتك
         </Link>
       ) : (
         <Button className="mt-6 w-full" loading={pending} onClick={join} type="button">
           <CheckCircle2 aria-hidden="true" size={18} />
-          انضم إلى الفصل
+          دخل يوم للفصل
         </Button>
       )}
     </div>

@@ -145,11 +145,11 @@
   font-size: 12px;
   color: #5e6677;
 }
-.account-form button[aria-label*='كلمة المرور'] {
+.account-form button[aria-label*='كلمة السر'] {
   color: #596174;
   border-radius: 50%;
 }
-.account-form button[aria-label*='كلمة المرور']:hover {
+.account-form button[aria-label*='كلمة السر']:hover {
   background: #f0f4f9;
 }
 .account-form .account-alert {

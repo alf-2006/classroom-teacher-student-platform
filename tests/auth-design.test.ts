@@ -17,6 +17,8 @@ describe('shared authentication visual contract', () => {
       expect(form).toContain(`name="${field}"`)
     }
     expect(form).toContain("'new-password' : 'current-password'")
-    expect(form).toContain("reportErrors({ confirmPassword: 'كلمتا المرور غير متطابقتين.' })")
+    expect(form).toContain(
+      "reportErrors({ confirmPassword: 'كلمتي السر مش زي بعض. خلّيهم نفس الكلمة.' })",
+    )
   })
 })

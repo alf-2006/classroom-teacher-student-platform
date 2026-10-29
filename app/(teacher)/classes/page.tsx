@@ -22,7 +22,7 @@ export default async function ClassesPage() {
     <>
       <PageHeader
         action={{ href: '#new-class', label: 'فصل جديد' }}
-        description="أنشئ الفصول ثم أرسل الدعوات الخاصة للطلاب. السعة تُفحص لحظة الانضمام."
+        description="اعمل فصولك وابعت لينك خاص للطلبة. بنتأكد إن في مكان قبل ما أي حد ينضم."
         title="الفصول"
       />
       <div id="new-class">
@@ -36,19 +36,19 @@ export default async function ClassesPage() {
                 <span className="grid size-10 place-items-center rounded-xl bg-primary-50 text-primary-700">
                   <UsersRound aria-hidden="true" size={20} />
                 </span>
-                <StatusPill status={item.status === 'active' ? 'نشط' : 'مؤرشف'} />
+                <StatusPill status={item.status === 'active' ? 'شغّال' : 'في الأرشيف'} />
               </div>
               <h2 className="mt-5 text-lg font-semibold">{item.name}</h2>
               <p className="mt-2 min-h-12 text-sm leading-6 text-muted">
-                {item.description || 'لا يوجد وصف لهذا الفصل.'}
+                {item.description || 'لسه مفيش وصف للفصل ده.'}
               </p>
               <div className="mt-5 flex items-center justify-between border-t border-border pt-4 text-xs font-bold text-muted">
-                <span>سعة {item.capacity} طالب</span>
+                <span>يشيل {item.capacity} طالب</span>
                 <Link
                   className="inline-flex items-center gap-1 text-primary-700"
                   href={`/classes/${item.id}`}
                 >
-                  إدارة الفصل <ArrowLeft aria-hidden="true" size={14} />
+                  ظبّط الفصل <ArrowLeft aria-hidden="true" size={14} />
                 </Link>
               </div>
             </article>
@@ -56,8 +56,8 @@ export default async function ClassesPage() {
         </div>
       ) : (
         <EmptyState
-          description="أنشئ فصلًا لتتمكن من إدارة الطلاب وإرسال دعوات الانضمام."
-          title="لم تنشئ فصولًا بعد"
+          description="اعمل أول فصل، وابدأ تجمع الطلبة بدعوة خاصة. من غير زحمة لينكات."
+          title="أول فصل مستنيك"
         />
       )}
     </>

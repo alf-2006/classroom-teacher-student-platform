@@ -40,7 +40,7 @@ export function Button({
       {children}
       {loading ? (
         <span role="status" className="text-xs">
-          جارٍ التنفيذ…
+          بنظبطها…
         </span>
       ) : null}
     </button>

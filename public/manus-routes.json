@@ -2,71 +2,71 @@
   "routes": [
     {
       "path": "/",
-      "title": "Public platform overview"
+      "title": "أهلاً بيك في Classroom"
     },
     {
       "path": "/login",
-      "title": "Phone and password sign in"
+      "title": "ادخل حسابك"
     },
     {
       "path": "/register",
-      "title": "Student phone and password registration"
+      "title": "اعمل حساب طالب"
     },
     {
       "path": "/invite/:token",
-      "title": "Class invitation enrollment"
+      "title": "دعوة لفصلك"
     },
     {
       "path": "/dashboard",
-      "title": "Teacher dashboard"
+      "title": "مساحة المدرس"
     },
     {
       "path": "/classes",
-      "title": "Teacher classes"
+      "title": "فصولك"
     },
     {
       "path": "/classes/:id",
-      "title": "Teacher class members and invites"
+      "title": "ظبّط الفصل والدعوات"
     },
     {
       "path": "/assignments",
-      "title": "Teacher assignments"
+      "title": "واجبات فصولك"
     },
     {
       "path": "/quizzes",
-      "title": "Teacher quizzes"
+      "title": "كويزات فصولك"
     },
     {
       "path": "/students",
-      "title": "Teacher students"
+      "title": "طلبة فصولك"
     },
     {
       "path": "/grades",
-      "title": "Teacher grades"
+      "title": "درجات الطلبة"
     },
     {
       "path": "/settings/ai",
-      "title": "Teacher AI settings"
+      "title": "ظبّط الذكاء الاصطناعي"
     },
     {
       "path": "/student/dashboard",
-      "title": "Student dashboard"
+      "title": "مساحتك"
     },
     {
       "path": "/student/classes",
-      "title": "Student classes"
+      "title": "فصولك"
     },
     {
       "path": "/student/assignments",
-      "title": "Student assignments"
+      "title": "واجباتك"
     },
     {
       "path": "/student/quizzes",
-      "title": "Student quizzes"
+      "title": "كويزاتك"
     },
     {
       "path": "/student/grades",
-      "title": "Student grades"
+      "title": "درجاتك"
     }
   ]
 }

@@ -91,3 +91,7 @@
 ## Unified authentication design
 
 - [x] Use the same reusable account frame and form styling for `/login` and `/register`: identical background, card, fonts, outline fields, focus/error states and pill actions. Preserve all four registration fields, password confirmation, existing Supabase submission behavior and safe invitation navigation. Responsive height must grow with the registration form rather than clip it. Landing and workspace pages remain unchanged.
+
+## Egyptian Arabic voice throughout
+
+- [x] Use natural friendly Egyptian Arabic throughout all existing UI pages, navigation, auth/invites, class controls, teacher/student workspaces, loading/error/empty states, validation, accessibility labels, metadata and custom 404. Use gentle situational humor without insults, mockery, profanity or jokes about security/errors/grades. Keep names/technical terms/user data and routes/schema/permissions unchanged; align shared actions and update text-dependent selectors/tests. Preserve explicit unfinished-feature and illustrative-data disclosures.

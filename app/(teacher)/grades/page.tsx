@@ -17,7 +17,7 @@ export default async function GradesPage() {
   return (
     <>
       <PageHeader
-        description="لا تظهر الدرجة للطالب إلا بعد نشرها. راجع الملاحظات والنتيجة قبل الإتاحة."
+        description="الدرجة مش بتظهر للطالب غير لما تنشرها. راجع النتيجة والملاحظات الأول."
         title="الدرجات"
       />
       {grades?.length ? (
@@ -28,22 +28,20 @@ export default async function GradesPage() {
                 <span className="grid size-10 place-items-center rounded-xl bg-primary-50 text-primary-700">
                   <BarChart3 aria-hidden="true" size={20} />
                 </span>
-                <StatusPill status={grade.published_at ? 'منشورة' : 'قيد المراجعة'} />
+                <StatusPill status={grade.published_at ? 'اتنشرت' : 'لسه بنراجعها'} />
               </div>
               <p className="mt-5 text-3xl font-semibold tabular-nums">
                 {grade.score}
                 <span className="text-base text-muted"> / {grade.max_score}</span>
               </p>
-              <p className="mt-2 text-sm text-muted">
-                {grade.feedback || 'لا توجد ملاحظة إضافية.'}
-              </p>
+              <p className="mt-2 text-sm text-muted">{grade.feedback || 'مفيش ملاحظة زيادة.'}</p>
             </article>
           ))}
         </div>
       ) : (
         <EmptyState
-          description="ستظهر الدرجات هنا بعد مراجعة التسليمات أو إنهاء تصحيح الاختبارات."
-          title="لا توجد درجات مسجلة بعد"
+          description="الدرجات هتظهر هنا بعد ما تراجع التسليمات أو تخلص تصحيح الكويزات."
+          title="لسه مفيش درجات متسجّلة"
         />
       )}
     </>

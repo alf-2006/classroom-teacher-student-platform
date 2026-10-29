@@ -19,22 +19,22 @@ import { WorkflowDemo } from '@/components/landing/workflow-demo'
 const outcomes = [
   {
     icon: UsersRound,
-    title: 'الفصل، من غير فوضى',
-    text: 'دعوات خاصة، عضويات واضحة، ومساحة تعرف فيها كل طالب.',
+    title: 'الفصل من غير دوشة',
+    text: 'دعوات خاصة، عضويات واضحة، وكل طالب باين مكانه.',
     tone: 'violet',
     number: '01',
   },
   {
     icon: FileCheck2,
-    title: 'كل خطوة لها أثر',
-    text: 'تصوّر للمتابعة يجمع النسخ والتسليمات بدل الملفات المتناثرة.',
+    title: 'كل خطوة ليها أثر',
+    text: 'متابعة تجمع النسخ والتسليمات بدل الملفات اللي بتتوه.',
     tone: 'mint',
     number: '02',
   },
   {
     icon: ShieldCheck,
-    title: 'القرار يفضل لك',
-    text: 'مساحة مراجعة تضع عين المدرس في قلب التقييم والنشر.',
+    title: 'القرار في إيدك',
+    text: 'مساحة مراجعة تخلي عين المدرس هي الأساس في التقييم والنشر.',
     tone: 'coral',
     number: '03',
   },
@@ -42,7 +42,7 @@ const outcomes = [
 
 function Brand() {
   return (
-    <Link href="/" className="landing-brand" aria-label="Classroom — الرئيسية">
+    <Link href="/" className="landing-brand" aria-label="Classroom — الصفحة الرئيسية">
       <span className="brand-symbol">
         <BookOpenCheck aria-hidden="true" size={23} strokeWidth={2} />
       </span>
@@ -67,29 +67,29 @@ export default async function HomePage() {
         <div className="landing-container">
           <header className="landing-header">
             <Brand />
-            <nav className="desktop-nav" aria-label="التنقل الرئيسي">
-              <a href="#outcomes">الفكرة</a>
-              <a href="#story">كيف تعمل</a>
-              <a href="#questions">أسئلة شائعة</a>
+            <nav className="desktop-nav" aria-label="التنقل بين الصفحات">
+              <a href="#outcomes">الحكاية</a>
+              <a href="#story">بتشتغل إزاي</a>
+              <a href="#questions">أسئلة بنسمعها كتير</a>
             </nav>
             <div className="header-actions">
               <Link href="/login" className="header-login">
-                تسجيل الدخول
+                ادخل حسابك
               </Link>
               <Link href="/register" className="landing-button button-white button-compact">
-                ابدأ كطالب
+                اعمل حساب طالب
                 <ArrowLeft size={16} aria-hidden="true" />
               </Link>
               <details className="mobile-menu">
-                <summary aria-label="فتح القائمة">
+                <summary aria-label="افتح القائمة">
                   <span />
                   <span />
                 </summary>
                 <nav aria-label="قائمة الموبايل">
-                  <a href="#outcomes">الفكرة</a>
-                  <a href="#story">كيف تعمل</a>
-                  <a href="#questions">أسئلة شائعة</a>
-                  <Link href="/login">تسجيل الدخول</Link>
+                  <a href="#outcomes">الحكاية</a>
+                  <a href="#story">بتشتغل إزاي</a>
+                  <a href="#questions">أسئلة بنسمعها كتير</a>
+                  <Link href="/login">ادخل حسابك</Link>
                 </nav>
               </details>
             </div>
@@ -98,24 +98,24 @@ export default async function HomePage() {
             <div className="hero-copy">
               <div className="hero-badge" data-reveal>
                 <span />
-                تعليم له مساحة. ومساحة لها معنى.
+                التعليم ليه مساحة. والمساحة ليها معنى.
               </div>
               <h1 className="hero-title" data-reveal data-delay="60">
-                <span>كل فصل له إيقاعه.</span>
-                <span className="title-coral">أنت تتحكم فيه.</span>
+                <span>كل فصل ليه طريقته.</span>
+                <span className="title-coral">وإنت ماسك الدفّة.</span>
               </h1>
               <p className="hero-description" data-reveal data-delay="120">
-                وقت أقل في ترتيب الفوضى.
+                وقت أقل في لَمّ الدوشة.
                 <br />
-                ووقت أكثر في اللي يستحق: <strong>التعليم.</strong>
+                ووقت أكتر للي يستاهل: <strong>التعليم.</strong>
               </p>
               <div className="hero-actions" data-reveal data-delay="180">
                 <Link className="landing-button button-primary" href="/register">
-                  إنشاء حساب طالب
+                  اعمل حساب طالب
                   <ArrowLeft size={18} aria-hidden="true" />
                 </Link>
                 <a className="landing-button button-outline" href="#story">
-                  اكتشف مساحة الفصل
+                  شوف مساحة الفصل
                   <ArrowDown size={17} aria-hidden="true" />
                 </a>
               </div>
@@ -126,25 +126,25 @@ export default async function HomePage() {
                 </span>
                 <span>
                   <Check size={15} aria-hidden="true" />
-                  صلاحيات تحمي كل فصل
+                  صلاحيات بتحمي كل فصل
                 </span>
               </div>
               <div className="hero-motion-row">
                 <MotionControl />
                 <span className="hero-index number-font" aria-hidden="true">
-                  SCROLL TO EXPLORE — 01
+                  انزل واكتشف — 01
                 </span>
               </div>
             </div>
             <ProductScene />
           </div>
           <div className="hero-baseline">
-            <span>وضوح للمدرس. خطوة مفهومة للطالب.</span>
-            <a href="#outcomes" aria-label="اكتشف فكرة Classroom">
+            <span>وضوح للمدرس. وخطوة سهلة للطالب.</span>
+            <a href="#outcomes" aria-label="شوف فكرة Classroom">
               <ArrowDown size={18} aria-hidden="true" />
             </a>
             <span className="number-font" aria-hidden="true">
-              BUILT FOR THE WAY YOU TEACH
+              متظبّط على طريقتك في الشرح
             </span>
           </div>
         </div>
@@ -152,16 +152,16 @@ export default async function HomePage() {
       <section id="outcomes" className="outcomes-section landing-container">
         <div className="section-intro">
           <div data-reveal>
-            <p className="section-kicker">أقل ضوضاء. قيمة أكبر.</p>
+            <p className="section-kicker">أقل دوشة. قيمة أكتر.</p>
             <h2 className="section-title">
-              التنظيم مش تفصيلة.
+              التنظيم مش رفاهية.
               <br />
-              <span>هو وقت بيرجع لك.</span>
+              <span>ده وقت بيرجعلك.</span>
             </h2>
           </div>
           <p className="section-copy" data-reveal data-delay="80">
-            Classroom مساحة عربية تُبنى حول اللحظات المهمة في الفصل: طالب ينضم، واجب يصل، وقرار
-            يحتاج انتباهك.
+            Classroom مساحة بالعربي معمولة حوالين اللحظات المهمة في الفصل: طالب ينضم، واجب يوصل،
+            وقرار محتاج تركيزك.
           </p>
         </div>
         <div className="outcome-cards">
@@ -180,8 +180,8 @@ export default async function HomePage() {
               </div>
               <h3>{title}</h3>
               <p>{text}</p>
-              <a href="#story" className="outcome-link" aria-label={`استكشف ${title}`}>
-                شوف الرحلة
+              <a href="#story" className="outcome-link" aria-label={`شوف حكاية ${title}`}>
+                شوف الحكاية
                 <ArrowLeft size={17} aria-hidden="true" />
               </a>
             </article>
@@ -191,13 +191,15 @@ export default async function HomePage() {
       <WorkflowDemo />
       <section className="principles-section landing-container">
         <div className="principles-copy" data-reveal>
-          <p className="section-kicker">وضوح، مش مجرد شكل</p>
+          <p className="section-kicker">الوضوح، مش منظر وخلاص</p>
           <h2 className="section-title">
             مساحة بسيطة.
             <br />
-            <span>تفاصيل محسوبة.</span>
+            <span>وكل تفصيلة في حسابها.</span>
           </h2>
-          <p className="section-copy">تجربة عربية تحترم وقتك، على شاشة كبيرة أو في كفّ إيدك.</p>
+          <p className="section-copy">
+            تجربة بالعربي بتحترم وقتك، على الشاشة الكبيرة أو في كف إيدك.
+          </p>
         </div>
         <div className="principle-list" data-reveal data-delay="80">
           <div>
@@ -205,8 +207,8 @@ export default async function HomePage() {
               <BookOpenCheck size={22} aria-hidden="true" />
             </span>
             <div>
-              <h3>عربي، مش واجهة مترجمة</h3>
-              <p>خط واضح، قراءة مريحة، واتجاه يحترم لغتك.</p>
+              <h3>عربي بجد، مش واجهة مترجمة</h3>
+              <p>خط واضح، قراية مريحة، واتجاه يحترم لغتك.</p>
             </div>
           </div>
           <div>
@@ -214,8 +216,8 @@ export default async function HomePage() {
               <ShieldCheck size={22} aria-hidden="true" />
             </span>
             <div>
-              <h3>كل فصل له حدوده</h3>
-              <p>صلاحيات مرتبطة بالملكية والعضوية، لا بمجرد إخفاء أزرار.</p>
+              <h3>كل فصل ليه حدوده</h3>
+              <p>صلاحيات مرتبطة بالملكية والعضوية، مش مجرد أزرار مستخبية.</p>
             </div>
           </div>
           <div>
@@ -223,43 +225,43 @@ export default async function HomePage() {
               <Sparkles size={22} aria-hidden="true" />
             </span>
             <div>
-              <h3>الحركة تشرح، مش تشتّت</h3>
-              <p>جرّب القصة، حرّك الماوس فوق المعاينة، أو أوقف الحركة وقت ما تحب.</p>
+              <h3>الحركة بتشرح، مش بتشتّت</h3>
+              <p>جرّب الحكاية، حرّك الماوس فوق المعاينة، أو وقّف الحركة وقت ما تحب.</p>
             </div>
           </div>
         </div>
       </section>
       <section className="faq-section landing-container" id="questions">
         <div data-reveal>
-          <p className="section-kicker">قبل ما تبدأ</p>
-          <h2 className="section-title">خلّينا نوضّح.</h2>
+          <p className="section-kicker">قبل ما نبدأ</p>
+          <h2 className="section-title">خلّينا نوضّحها.</h2>
         </div>
         <div className="faq-list" data-reveal data-delay="80">
           <details>
             <summary>
-              هل الأرقام في المعاينة تخص حسابًا حقيقيًا؟<span aria-hidden="true">+</span>
+              الأرقام اللي في المعاينة دي تخص حساب حقيقي؟<span aria-hidden="true">+</span>
             </summary>
             <p>
-              لا. المعاينة والقصة التفاعلية تعرضان أمثلة توضيحية للتصميم، وليستا بيانات حسابك أو
-              نتائج طلاب حقيقيين.
+              لأ. المعاينة والحكاية التفاعلية دي أمثلة للتوضيح، مش بيانات حسابك ولا نتائج طلبة
+              حقيقيين.
             </p>
           </details>
           <details>
             <summary>
-              إزاي الطالب بينضم إلى فصل؟<span aria-hidden="true">+</span>
+              إزاي الطالب بينضم لفصل؟<span aria-hidden="true">+</span>
             </summary>
             <p>
-              بعد تسجيل الدخول، يستخدم الطالب رابط الدعوة الخاص الذي يرسله المدرس. الانضمام مرتبط
-              بالعضوية وسعة الفصل.
+              بعد ما يسجّل دخوله، الطالب بيستخدم رابط الدعوة الخاص اللي المدرس بيبعته. الانضمام
+              مرتبط بعضوية الفصل وسعته.
             </p>
           </details>
           <details>
             <summary>
-              هل المنصة مكتملة وجاهزة للاستخدام النهائي؟<span aria-hidden="true">+</span>
+              المنصة جاهزة نستخدمها دلوقتي؟<span aria-hidden="true">+</span>
             </summary>
             <p>
-              المنصة ما زالت قيد التطوير. قاعدة البيانات والفصول والدعوات موجودة، بينما التسليمات
-              والاختبارات والتصحيح تحتاج استكمالًا. تسجيل الهاتف يحتاج تفعيل مزود SMS في Supabase.
+              لسه بنكمّل المنصة. قاعدة البيانات والفصول والدعوات شغّالة، إنما التسليمات والاختبارات
+              والتصحيح لسه محتاجة استكمال. وتسجيل الموبايل محتاج تفعيل مزوّد SMS في Supabase.
             </p>
           </details>
         </div>
@@ -268,27 +270,27 @@ export default async function HomePage() {
         <div className="final-cta" data-reveal>
           <div className="cta-orbit" aria-hidden="true" />
           <div>
-            <p>كل رحلة تعليم تستحق بداية واضحة.</p>
+            <p>كل رحلة تعليم تستاهل بداية واضحة.</p>
             <h2>
-              الفصل الواضح يبدأ
+              الفصل المرتّب بيبدأ
               <br />
-              بمساحة واضحة.
+              من مساحة واضحة.
             </h2>
           </div>
           <div className="final-actions">
             <Link className="landing-button button-white" href="/register">
-              إنشاء حساب طالب
+              اعمل حساب طالب
               <ArrowLeft aria-hidden="true" size={18} />
             </Link>
             <Link className="landing-button button-outline" href="/login">
-              تسجيل الدخول
+              ادخل حسابك
             </Link>
           </div>
         </div>
       </section>
       <footer className="landing-footer landing-container">
         <Brand />
-        <p>تعليم منظّم. وتفاصيل بتفرق.</p>
+        <p>تعليم مترتّب. وتفاصيل بتفرق.</p>
         <span className="number-font" lang="en" dir="ltr">
           CLASSROOM © 2026
         </span>

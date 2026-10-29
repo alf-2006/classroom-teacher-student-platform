@@ -39,8 +39,8 @@ export default async function StudentsPage() {
   return (
     <>
       <PageHeader
-        description="تشاهد فقط طلاب فصولك. الطالب لا يرى بيانات زملائه ضمن سياسات قاعدة البيانات."
-        title="الطلاب"
+        description="إنت بتشوف طلبة فصولك بس. وكل طالب بياناته خاصة، مش ظاهرة لزمايله."
+        title="الطلبة"
       />
       {memberships?.length ? (
         <div className="surface-card overflow-hidden">
@@ -79,7 +79,7 @@ export default async function StudentsPage() {
                         {formatArabicDate(membership.joined_at)}
                       </td>
                       <td className="px-5 py-4">
-                        <StatusPill status={membership.status === 'active' ? 'نشط' : 'موقوف'} />
+                        <StatusPill status={membership.status === 'active' ? 'شغّال' : 'متوقّف'} />
                       </td>
                     </tr>
                   )
@@ -90,8 +90,8 @@ export default async function StudentsPage() {
         </div>
       ) : (
         <EmptyState
-          description="سيظهر الطلاب هنا بعد انضمامهم عبر دعوة فصل تملكها."
-          title="لا يوجد طلاب في فصولك بعد"
+          description="الطلبة هيظهروا هنا لما يدخلوا فصلك من لينك الدعوة."
+          title="لسه مفيش طلبة في فصولك"
         />
       )}
     </>

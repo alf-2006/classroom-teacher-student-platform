@@ -5,9 +5,13 @@ import { ArrowLeft, Check, FileText, Link2, ShieldCheck, UsersRound } from 'luci
 import { useLandingMotion } from './landing-motion'
 
 const steps = [
-  { title: 'دعوة تجمع الفصل', text: 'رابط واحد خاص. والطلاب في المكان الصحيح.', icon: Link2 },
-  { title: 'تسليم لا يضيع', text: 'ملف واضح، نسخة محفوظة، وخطوة تالية معروفة.', icon: FileText },
-  { title: 'قرار يبقى لك', text: 'المراجعة أمامك. والنتيجة تُنشر عندما تقرر.', icon: ShieldCheck },
+  { title: 'دعوة تلمّ الفصل', text: 'لينك واحد خاص. والطلبة في المكان الصح.', icon: Link2 },
+  {
+    title: 'تسليم ما يضيعش',
+    text: 'ملف واضح، نسخة محفوظة، والخطوة الجاية معروفة.',
+    icon: FileText,
+  },
+  { title: 'القرار في إيدك', text: 'المراجعة قدامك. والنتيجة تنزل لما تقرر.', icon: ShieldCheck },
 ]
 
 export function WorkflowDemo() {
@@ -51,16 +55,16 @@ export function WorkflowDemo() {
     <section className="workflow-section" id="story">
       <div className="landing-container workflow-layout">
         <div data-reveal>
-          <p className="section-kicker">من البداية للنهاية</p>
+          <p className="section-kicker">من أولها لآخرها</p>
           <h2 className="section-title">
-            مش مجرد أدوات.
+            مش أدوات وخلاص.
             <br />
-            <span>إيقاع عمل متكامل.</span>
+            <span>كل خطوة ماشية مع اللي بعدها.</span>
           </h2>
           <p className="section-copy">
-            من الدعوة إلى القرار، شوف كيف تبقى كل خطوة في مكانها. جرّب المراحل الثلاث.
+            من الدعوة للقرار، شوف كل خطوة وهي بتاخد مكانها. جرّب المراحل التلاتة.
           </p>
-          <div role="tablist" aria-label="مراحل عمل Classroom" className="workflow-tabs">
+          <div role="tablist" aria-label="مراحل شغل Classroom" className="workflow-tabs">
             {steps.map(({ title, text, icon: Icon }, index) => (
               <button
                 role="tab"
@@ -95,7 +99,7 @@ export function WorkflowDemo() {
             <div className="workflow-toolbar">
               <span>
                 <i />
-                رحلة فصل واحد
+                حكاية فصل واحد
               </span>
               <span className="number-font">0{stage + 1} / 03</span>
             </div>
@@ -112,9 +116,9 @@ export function WorkflowDemo() {
                   <span className="workflow-symbol">
                     <Link2 size={30} aria-hidden="true" />
                   </span>
-                  <span className="demo-tag">مثال توضيحي</span>
-                  <h3>الصف الثاني · رياضيات</h3>
-                  <p>دعوة خاصة تنقل طلابك إلى مساحة الفصل.</p>
+                  <span className="demo-tag">مثال للتوضيح</span>
+                  <h3>الصف التاني · رياضيات</h3>
+                  <p>دعوة خاصة توصّل طلبتك لمساحة الفصل.</p>
                   <div className="demo-link" dir="ltr">
                     <span className="number-font">classroom / invite / ••••••</span>
                     <Check size={17} aria-hidden="true" />
@@ -127,8 +131,8 @@ export function WorkflowDemo() {
                       <span>ن</span>
                     </div>
                     <p>
-                      <strong>الطلاب في مكان واحد</strong>
-                      <small>لا مزيد من الروابط المتناثرة.</small>
+                      <strong>الطلبة كلهم في مكان واحد</strong>
+                      <small>مفيش لينكات تايهة، والواتساب ياخد أجازة.</small>
                     </p>
                   </div>
                 </>
@@ -137,19 +141,19 @@ export function WorkflowDemo() {
                   <span className="workflow-symbol mint">
                     <FileText size={30} aria-hidden="true" />
                   </span>
-                  <span className="demo-tag">تصوّر سير التسليم</span>
-                  <h3>كل تسليم له أثر</h3>
-                  <p>حافظ على النسخة التي وصلتك، واعرف الخطوة التالية.</p>
+                  <span className="demo-tag">مثال للتسليم · لسه بيتجهّز</span>
+                  <h3>كده هنرتّب التسليمات</h3>
+                  <p>ده تصوّر للمتابعة اللي لسه بنجهّزها: نسخة واضحة، وخطوة جاية معروفة.</p>
                   <div className="demo-file">
                     <FileText size={26} aria-hidden="true" />
                     <div>
-                      <strong>حلّ الوحدة الثالثة.pdf</strong>
-                      <small>ملف الطالب · نسخة محفوظة</small>
+                      <strong>حلّ الوحدة التالتة.pdf</strong>
+                      <small>ملف مثال · مش تسليم حقيقي</small>
                     </div>
                     <Check size={19} aria-hidden="true" />
                   </div>
                   <div className="workflow-progress">
-                    <span>ملف واضح. مراجعة أسرع.</span>
+                    <span>ملف واضح. ومراجعة أسرع.</span>
                     <div>
                       <i className="mint" />
                     </div>
@@ -160,28 +164,28 @@ export function WorkflowDemo() {
                   <span className="workflow-symbol coral">
                     <ShieldCheck size={30} aria-hidden="true" />
                   </span>
-                  <span className="demo-tag">تصوّر مرحلة المراجعة</span>
-                  <h3>عين المدرس هي الأساس</h3>
-                  <p>اقتراحات تساعدك. القرار النهائي والنشر يبقيان لك.</p>
+                  <span className="demo-tag">نشوف المراجعة ماشية إزاي</span>
+                  <h3>القرار عند المدرس</h3>
+                  <p>اقتراحات تساعدك، بس القرار والنشر في إيدك.</p>
                   <div className="grade-review">
                     <span className="number-font">
                       18 <small>/ 20</small>
                     </span>
                     <div>
-                      <strong>درجة قيد المراجعة</strong>
-                      <small>لا تُنشر قبل قرار المدرس</small>
+                      <strong>درجة لسه بتتراجع</strong>
+                      <small>مش بتتنشر قبل قرار المدرس</small>
                     </div>
                   </div>
                   <div className="review-note">
                     <Check size={17} aria-hidden="true" />
-                    مراجعة بشرية. سياق كامل.
+                    المدرس يراجع، والصورة كاملة.
                   </div>
                 </>
               )}
             </div>
             <div className="workflow-bottom">
               <UsersRound size={16} aria-hidden="true" />
-              <span>كل فصل. كل طالب. كل خطوة.</span>
+              <span>كل فصل، وكل طالب، وكل خطوة في مكانها.</span>
               <ArrowLeft size={16} aria-hidden="true" />
             </div>
           </div>

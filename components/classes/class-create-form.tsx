@@ -23,7 +23,7 @@ export function ClassCreateForm() {
       capacity: form.get('capacity'),
     })
     if (!parsed.success) {
-      setMessage(parsed.error.issues[0]?.message ?? 'راجع البيانات.')
+      setMessage(parsed.error.issues[0]?.message ?? 'بصّ على البيانات وجرّب تاني.')
       return
     }
     setPending(true)
@@ -32,21 +32,21 @@ export function ClassCreateForm() {
       const supabase = createBrowserSupabaseClient()
       const { data: auth } = await supabase.auth.getUser()
       if (!auth.user) {
-        setMessage('انتهت الجلسة. سجّل الدخول مجددًا.')
+        setMessage('جلسة دخولك خلصت. ادخل حسابك تاني.')
         return
       }
       const { error } = await supabase
         .from('classes')
         .insert({ owner_teacher_id: auth.user.id, ...parsed.data })
       if (error) {
-        setMessage('تعذر إنشاء الفصل. تأكد من صلاحيات الحساب ثم حاول مرة أخرى.')
+        setMessage('مش قادرين نعمل الفصل. اتأكد إن حسابك ليه الصلاحية وجرّب تاني.')
         return
       }
       element.reset()
       setOpen(false)
       router.refresh()
     } catch {
-      setMessage('تعذر الاتصال. تحقق من الإنترنت وأعد المحاولة.')
+      setMessage('الاتصال فصل. اطّمن على النت وجرّب تاني.')
     } finally {
       setPending(false)
     }
@@ -65,8 +65,10 @@ export function ClassCreateForm() {
       aria-busy={pending}
     >
       <div className="sm:col-span-2">
-        <h2 className="text-lg font-semibold">إنشاء فصل جديد</h2>
-        <p className="mt-1 text-sm text-muted">حدّد الاسم والسعة قبل إرسال رابط دعوة للطلاب.</p>
+        <h2 className="text-lg font-semibold">نعمل فصل جديد؟</h2>
+        <p className="mt-1 text-sm text-muted">
+          سمّي الفصل وحدّد عدد الطلبة، وبعدها ابعت لينك الدعوة.
+        </p>
       </div>
       <label className="block">
         <span className="mb-2 block text-sm font-semibold">اسم الفصل</span>
@@ -74,12 +76,12 @@ export function ClassCreateForm() {
           autoFocus
           className="min-h-12 w-full rounded-xl border border-border px-3 py-3 text-sm"
           name="name"
-          placeholder="مثال: الصف الثاني — علوم"
+          placeholder="زي: تانية إعدادي — علوم"
           required
         />
       </label>
       <label className="block">
-        <span className="mb-2 block text-sm font-semibold">السعة القصوى</span>
+        <span className="mb-2 block text-sm font-semibold">الفصل يشيل كام طالب؟</span>
         <input
           className="min-h-12 w-full rounded-xl border border-border px-3 py-3 text-sm"
           defaultValue="30"
@@ -92,13 +94,13 @@ export function ClassCreateForm() {
       </label>
       <label className="block sm:col-span-2">
         <span className="mb-2 block text-sm font-semibold">
-          وصف مختصر <span className="font-normal text-muted">اختياري</span>
+          كلمتين عن الفصل <span className="font-normal text-muted">براحتك</span>
         </span>
         <textarea
           className="min-h-24 w-full rounded-xl border border-border px-3 py-3 text-sm"
           name="description"
           maxLength={2000}
-          placeholder="ما الذي يتعلمه هذا الفصل؟"
+          placeholder="هنذاكر إيه في الفصل ده؟"
         />
       </label>
       {message ? (
@@ -111,10 +113,10 @@ export function ClassCreateForm() {
       ) : null}
       <div className="flex justify-end gap-2 sm:col-span-2">
         <Button variant="secondary" disabled={pending} onClick={() => setOpen(false)} type="button">
-          إلغاء
+          مش دلوقتي
         </Button>
         <Button loading={pending} type="submit">
-          إنشاء الفصل
+          اعمل الفصل
         </Button>
       </div>
     </form>

@@ -20,12 +20,12 @@ export function InviteCreateForm({ classId }: { classId: string }) {
         target_class_id: classId,
       })
       if (error || !data?.[0]?.token) {
-        setMessage('تعذر إصدار الدعوة. تأكد أن حسابك يملك هذا الفصل.')
+        setMessage('مش قادرين نعمل الدعوة. اتأكد إن الفصل ده تابع لحسابك.')
         return
       }
       setInviteUrl(`${window.location.origin}/invite/${data[0].token}`)
     } catch {
-      setMessage('تعذر الاتصال. تحقق من الإنترنت ثم حاول مجددًا.')
+      setMessage('الاتصال فصل. اطّمن على النت وجرّب تاني.')
     } finally {
       setPending(false)
     }
@@ -37,7 +37,7 @@ export function InviteCreateForm({ classId }: { classId: string }) {
       setCopied(true)
       setMessage(null)
     } catch {
-      setMessage('المتصفح لم يسمح بالنسخ. حدد الرابط وانسخه يدويًا.')
+      setMessage('المتصفح مش سامح بالنسخ. اختار اللينك وانسخه بنفسك.')
     }
   }
   return (
@@ -47,14 +47,14 @@ export function InviteCreateForm({ classId }: { classId: string }) {
           <Link2 aria-hidden="true" size={20} />
         </span>
         <div>
-          <h2 className="text-lg font-semibold">دعوة طالب</h2>
+          <h2 className="text-lg font-semibold">ندعي طالب؟</h2>
           <p className="mt-1 text-sm leading-7 text-muted">
-            كل دعوة تحمل رمزًا عشوائيًا، ويُفحص الفصل والسعة لحظة الانضمام.
+            كل دعوة ليها كود خاص. وبنتأكد إن في مكان للطالب قبل ما ينضم.
           </p>
         </div>
       </div>
       <Button className="mt-5" loading={pending} onClick={createInvite} type="button">
-        إصدار رابط دعوة
+        اعمل لينك دعوة
       </Button>
       {message ? (
         <p
@@ -67,11 +67,11 @@ export function InviteCreateForm({ classId }: { classId: string }) {
       {inviteUrl ? (
         <div className="mt-5 rounded-xl border border-[#abddc9] bg-success-50 p-4">
           <p className="text-sm font-semibold text-[var(--success-600)]" role="status">
-            {copied ? 'تم نسخ الرابط' : 'الرابط جاهز للمشاركة'}
+            {copied ? 'اللينك اتنسخ. ابعته بقى!' : 'اللينك جاهز. ناقص توصّله للطلبة'}
           </p>
           <div className="mt-3 flex flex-col gap-2 sm:flex-row">
             <input
-              aria-label="رابط دعوة الطالب — يمكنك تحديده ونسخه"
+              aria-label="لينك دعوة الطالب — تقدر تختاره وتنسخه"
               className="min-h-12 min-w-0 flex-1 rounded-xl border border-border bg-white px-3 py-3 text-left text-xs"
               dir="ltr"
               readOnly
@@ -83,7 +83,7 @@ export function InviteCreateForm({ classId }: { classId: string }) {
               ) : (
                 <Copy aria-hidden="true" size={16} />
               )}
-              {copied ? 'تم النسخ' : 'نسخ الرابط'}
+              {copied ? 'اتنسخ!' : 'انسخ اللينك'}
             </Button>
           </div>
         </div>

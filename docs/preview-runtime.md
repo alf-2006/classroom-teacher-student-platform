@@ -32,3 +32,16 @@ NEXT_BUILD_DIR=.next-production pnpm start
 ```
 
 المنفذ 3000 والمصادقة نفسها دون تغيير.
+
+## نسخة النبرة المصرية
+
+تستخدم نسخة الكلام المصري الجديدة المخرجات المعزولة `.next-login` أثناء تجهيزها، مع بقاء المنفذ 3000:
+
+```bash
+NEXT_BUILD_DIR=.next-login pnpm build
+NEXT_BUILD_DIR=.next-login pnpm start
+```
+
+كل من `.next-login` و`.next-production` مخرجات build مستثناة من Git. إعدادات Supabase ومسار الدخول لم تتغير.
+
+آخر نسخة بعد تصحيحات مراجعة النبرة بتشتغل حاليًا بأمر `NEXT_BUILD_DIR=.next-production pnpm start` على 3000. `.next-login` كان مخرج build معزول للنسخة الأولى، ومش هو المخرج الحالي.

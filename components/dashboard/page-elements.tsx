@@ -19,7 +19,7 @@ export function PageHeader({
   return (
     <div className="mb-8 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
       <div>
-        <p className="eyebrow">{eyebrow ?? 'مساحة العمل'}</p>
+        <p className="eyebrow">{eyebrow ?? 'مساحتك'}</p>
         <h1 className="page-title mt-1">{title}</h1>
         <p className="page-description max-w-2xl">{description}</p>
       </div>

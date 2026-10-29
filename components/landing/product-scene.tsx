@@ -69,7 +69,7 @@ export function ProductScene() {
                 Classroom
               </span>
             </div>
-            <span className="demo-tag">معاينة توضيحية</span>
+            <span className="demo-tag">معاينة للتوضيح</span>
             <div className="window-dots" aria-hidden="true">
               <i />
               <i />
@@ -81,14 +81,14 @@ export function ProductScene() {
               <div className="demo-person">
                 <span>أ</span>
                 <div>
-                  مساحة المدرس<small>كل شيء في مكانه</small>
+                  مساحة المدرس<small>كل حاجة في مكانها</small>
                 </div>
               </div>
               {[
-                [LayoutDashboard, 'نظرة عامة'],
+                [LayoutDashboard, 'نظرة سريعة'],
                 [UsersRound, 'الفصول'],
                 [FileText, 'الواجبات'],
-                [GraduationCap, 'الطلاب'],
+                [GraduationCap, 'الطلبة'],
               ].map(([Icon, label], index) => {
                 const Symbol = Icon as typeof LayoutDashboard
                 return (
@@ -100,43 +100,39 @@ export function ProductScene() {
               })}
               <div className="sidebar-note">
                 <Sparkles size={18} />
-                وقت أكثر.
+                وقت أكتر.
                 <br />
-                وضوح أكبر.
+                ووجع دماغ أقل.
               </div>
             </aside>
             <div className="demo-content">
               <div className="demo-heading">
                 <div>
-                  <span>جاهز ليوم أوضح؟</span>
-                  <h2>صباح الخير، أستاذ أحمد</h2>
+                  <span>جاهز ليوم أهدى؟</span>
+                  <h2>صباح الخير يا أستاذ أحمد</h2>
                 </div>
                 <span className="demo-avatar">أ</span>
               </div>
               <div className="demo-metrics">
                 <div className="metric-ink">
                   <span className="number-font">04</span>
-                  <small>فصول نشطة</small>
+                  <small>فصول شغّالة</small>
                 </div>
                 <div className="metric-violet">
                   <span className="number-font">28</span>
-                  <small>طالبًا</small>
+                  <small>طلبة</small>
                 </div>
                 <div className="metric-mint">
                   <span className="number-font">12</span>
-                  <small>تسليمًا جديدًا</small>
+                  <small>تسليمات جديدة</small>
                 </div>
               </div>
               <div className="demo-chart">
                 <div>
-                  <h3>إيقاع التعلّم</h3>
-                  <span>هذا الأسبوع</span>
+                  <h3>الدنيا ماشية إزاي</h3>
+                  <span>الأسبوع ده</span>
                 </div>
-                <svg
-                  viewBox="0 0 340 104"
-                  role="img"
-                  aria-label="رسم توضيحي لتقدم التعلّم خلال الأسبوع"
-                >
+                <svg viewBox="0 0 340 104" role="img" aria-label="رسم يوضّح التقدّم خلال الأسبوع">
                   <defs>
                     <linearGradient id="chart-fill" x1="0" x2="0" y1="0" y2="1">
                       <stop offset="0%" stopColor="#6557f5" stopOpacity=".22" />
@@ -170,8 +166,8 @@ export function ProductScene() {
                   <FileText size={18} aria-hidden="true" />
                 </span>
                 <div>
-                  <h3>اختبار الوحدة الثالثة</h3>
-                  <p>الصف الثاني · ٣ تسليمات للمراجعة</p>
+                  <h3>كويز الوحدة التالتة</h3>
+                  <p>الصف التاني · ٣ تسليمات للمراجعة</p>
                 </div>
                 <span className="task-state">للمراجعة</span>
               </div>
@@ -180,9 +176,9 @@ export function ProductScene() {
           <div className="product-footer">
             <span>
               <i />
-              عرض تصميمي، وليس بيانات حسابك
+              ده عرض توضيحي، مش بيانات حسابك
             </span>
-            <span className="number-font">WORKSPACE / 01</span>
+            <span className="number-font">مساحتك / 01</span>
           </div>
         </div>
         <div className="float-card float-card-top">
@@ -190,7 +186,7 @@ export function ProductScene() {
             <UsersRound size={18} aria-hidden="true" />
           </span>
           <div>
-            كل فصل له مساحته<small>دعوة خاصة. بداية واضحة.</small>
+            كل فصل ليه مساحته<small>دعوة خاصة. وكل حاجة تبدأ صح.</small>
           </div>
           <ArrowUpLeft size={16} aria-hidden="true" />
         </div>
@@ -199,7 +195,7 @@ export function ProductScene() {
             <Check size={19} aria-hidden="true" />
           </span>
           <div>
-            كل خطوة محفوظة<small>مسار واضح من أول دعوة</small>
+            كل خطوة متسجّلة<small>الطريق واضح من أول دعوة</small>
           </div>
         </div>
       </div>

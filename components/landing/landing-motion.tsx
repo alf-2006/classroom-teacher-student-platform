@@ -108,15 +108,11 @@ export function MotionControl() {
       disabled={reduced}
       aria-pressed={paused}
       aria-label={
-        reduced
-          ? 'الحركة مخففة وفق إعدادات جهازك'
-          : paused
-            ? 'تشغيل حركة الصفحة'
-            : 'إيقاف حركة الصفحة'
+        reduced ? 'الحركة أخف، زي إعدادات جهازك' : paused ? 'شغّل حركة الصفحة' : 'وقّف حركة الصفحة'
       }
     >
       <Icon aria-hidden="true" size={15} />
-      <span>{reduced ? 'حركة مخففة' : paused ? 'تشغيل الحركة' : 'إيقاف الحركة'}</span>
+      <span>{reduced ? 'حركة أهدى' : paused ? 'شغّل الحركة' : 'وقّف الحركة'}</span>
     </button>
   )
 }

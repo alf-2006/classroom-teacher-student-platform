@@ -18,7 +18,7 @@ export default async function StudentAssignmentsPage() {
   return (
     <>
       <PageHeader
-        description="تظهر الواجبات التي نُشرت لفصولك فقط. سيرفع الملف لاحقًا إلى مساحة خاصة لا يراها سوى صاحب التسليم والمدرس."
+        description="هنا واجبات فصولك اللي المدرس نشرها. رفع الملفات لسه بيتجهّز، وهيكون خاص بيك وبالمدرس."
         title="الواجبات"
       />
       {assignments?.length ? (
@@ -34,25 +34,26 @@ export default async function StudentAssignmentsPage() {
                 </span>
                 <div>
                   <h2 className="font-semibold">{item.title}</h2>
-                  <p className="mt-1 text-sm text-muted">
-                    {item.details || 'لا توجد تعليمات إضافية.'}
-                  </p>
+                  <p className="mt-1 text-sm text-muted">{item.details || 'مفيش تعليمات زيادة.'}</p>
                   <p className="mt-2 text-xs font-bold text-muted">
-                    نُشر {item.published_at ? formatArabicDate(item.published_at) : 'حديثًا'}
+                    اتنشر {item.published_at ? formatArabicDate(item.published_at) : 'من قريب'}
                   </p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <StatusPill status="منشور" />
+                <StatusPill status="اتنشر" />
                 <p className="max-w-56 rounded-xl bg-surface-subtle px-3 py-2 text-xs leading-6 text-muted">
-                  التسليم غير متاح بعد؛ مسار رفع الملفات قيد التطوير.
+                  التسليم لسه مش متاح. بنجهّز رفع الملفات.
                 </p>
               </div>
             </article>
           ))}
         </div>
       ) : (
-        <EmptyState description="لا توجد واجبات منشورة في فصولك الآن." title="كل شيء مرتب" />
+        <EmptyState
+          description="لسه مفيش واجبات نازلة لفصولك. هتلاقيها هنا لما المدرس ينشرها."
+          title="لسه مفيش واجبات هنا"
+        />
       )}
     </>
   )

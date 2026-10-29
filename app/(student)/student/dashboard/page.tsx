@@ -47,34 +47,34 @@ export default async function StudentDashboardPage() {
     <>
       <PageHeader
         eyebrow="مساحة الطالب"
-        title={`أهلًا، ${profile!.display_name}`}
-        description="هذه اللوحة تعرض فقط ما يرتبط بعضويتك الحالية وما نشره المدرسون لك."
+        title={`نورت، ${profile!.display_name}`}
+        description="دي مساحتك: فصولك والحاجات اللي المدرسين نزّلوها ليك. من غير لف كتير."
       />
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         <Metric
-          detail="عضويات نشطة"
+          detail="إنت موجود فيها"
           icon={<BookOpen aria-hidden="true" size={20} />}
           label="فصولي"
           value={classCount}
         />
         <Metric
-          detail="آخر 5 منشورة لك"
+          detail="آخر 5 نازلين ليك"
           icon={<FileText aria-hidden="true" size={20} />}
           label="الواجبات"
           value={assignments.data?.length ?? 0}
           tone="success"
         />
         <Metric
-          detail="آخر 5 منشورة؛ المحاولة قيد التطوير"
+          detail="آخر 5 نازلين؛ حل الكويز لسه بيتجهّز"
           icon={<ClipboardCheck aria-hidden="true" size={20} />}
-          label="الاختبارات"
+          label="الكويزات"
           value={quizzes.data?.length ?? 0}
           tone="warning"
         />
         <Metric
-          detail="آخر 10 نتائج أتاحها المدرس"
+          detail="آخر 10 درجات المدرس نزّلها ليك"
           icon={<Trophy aria-hidden="true" size={20} />}
-          label="درجات منشورة"
+          label="درجات نازلة ليك"
           value={grades.data?.length ?? 0}
         />
       </div>
@@ -82,9 +82,9 @@ export default async function StudentDashboardPage() {
         <Card>
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-lg font-semibold">واجبات منشورة</h2>
+              <h2 className="text-lg font-semibold">الواجبات اللي نزلت</h2>
               <p className="mt-1 text-sm text-muted">
-                تصفح المحتوى المنشور. مسار التسليم قيد التطوير.
+                بصّ على الواجبات اللي نزلت. التسليم لسه بيتجهّز.
               </p>
             </div>
             <Link
@@ -100,19 +100,17 @@ export default async function StudentDashboardPage() {
                 <div className="rounded-xl border border-border p-4" key={item.id}>
                   <div className="flex items-center justify-between gap-3">
                     <p className="font-semibold">{item.title}</p>
-                    <StatusPill status="منشور" />
+                    <StatusPill status="اتنشر" />
                   </div>
-                  <p className="mt-1 text-sm text-muted">
-                    {item.details || 'لا توجد تعليمات إضافية.'}
-                  </p>
+                  <p className="mt-1 text-sm text-muted">{item.details || 'مفيش تعليمات زيادة.'}</p>
                 </div>
               ))}
             </div>
           ) : (
             <div className="mt-5">
               <EmptyState
-                description="ستظهر هنا الواجبات التي ينشرها مدرسو فصولك."
-                title="لا توجد واجبات منشورة"
+                description="لما المدرس ينزّل واجب، هتلاقيه هنا. من غير «هو اتبعت فين؟»."
+                title="لسه مفيش واجبات نازلة"
               />
             </div>
           )}
@@ -120,14 +118,14 @@ export default async function StudentDashboardPage() {
         <Card>
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-lg font-semibold">اختبارات متاحة</h2>
-              <p className="mt-1 text-sm text-muted">لا يظهر لك مفتاح الإجابة أثناء المحاولة.</p>
+              <h2 className="text-lg font-semibold">كويزات نازلة ليك</h2>
+              <p className="mt-1 text-sm text-muted">الإجابات النموذجية مش بتظهر وإنت بتحل.</p>
             </div>
             <Link
               className="text-sm font-semibold text-primary-700 underline underline-offset-4"
               href="/student/quizzes"
             >
-              كل الاختبارات
+              كل الكويزات
             </Link>
           </div>
           {quizzes.data?.length ? (
@@ -136,7 +134,7 @@ export default async function StudentDashboardPage() {
                 <div className="rounded-xl border border-border p-4" key={item.id}>
                   <p className="font-semibold">{item.title}</p>
                   <p className="mt-1 text-sm text-muted">
-                    {item.description || 'اختبار منشور من أحد فصولك.'}
+                    {item.description || 'كويز نازل لواحد من فصولك.'}
                   </p>
                 </div>
               ))}
@@ -144,8 +142,8 @@ export default async function StudentDashboardPage() {
           ) : (
             <div className="mt-5">
               <EmptyState
-                description="ستظهر هنا الاختبارات المنشورة لفصولك."
-                title="لا توجد اختبارات متاحة"
+                description="أي كويز المدرس ينزّله لفصلك هتلاقيه هنا."
+                title="لسه مفيش كويزات هنا"
               />
             </div>
           )}

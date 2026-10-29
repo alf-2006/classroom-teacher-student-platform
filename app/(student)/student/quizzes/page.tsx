@@ -18,8 +18,8 @@ export default async function StudentQuizzesPage() {
   return (
     <>
       <PageHeader
-        description="عند بدء الاختبار، تأتي الأسئلة من RPC آمن لا يعيد مفاتيح الإجابة أو المعايير الداخلية."
-        title="الاختبارات"
+        description="الأسئلة هتوصلك لوحدها، من غير الإجابات النموذجية أو تفاصيل التصحيح الخاصة."
+        title="الكويزات"
       />
       {quizzes?.length ? (
         <div className="grid gap-4 md:grid-cols-2">
@@ -29,22 +29,22 @@ export default async function StudentQuizzesPage() {
                 <span className="grid size-10 place-items-center rounded-xl bg-primary-50 text-primary-700">
                   <ClipboardCheck aria-hidden="true" size={20} />
                 </span>
-                <StatusPill status="منشور" />
+                <StatusPill status="اتنشر" />
               </div>
               <h2 className="mt-5 font-semibold">{item.title}</h2>
-              <p className="mt-2 text-sm text-muted">{item.description || 'اختبار منشور لفصلك.'}</p>
+              <p className="mt-2 text-sm text-muted">{item.description || 'كويز نازل لفصلك.'}</p>
               <div className="mt-5 flex items-center gap-2 border-t border-border pt-4 text-xs font-bold text-muted">
                 <LockKeyhole aria-hidden="true" size={15} />
-                بدء المحاولة قيد التطوير · نُشر{' '}
-                {item.published_at ? formatArabicDate(item.published_at) : 'حديثًا'}
+                حل الكويز لسه بيتجهّز · اتنشر{' '}
+                {item.published_at ? formatArabicDate(item.published_at) : 'من قريب'}
               </div>
             </article>
           ))}
         </div>
       ) : (
         <EmptyState
-          description="ستظهر الاختبارات هنا عند نشرها لفصولك."
-          title="لا توجد اختبارات متاحة"
+          description="الكويزات هتظهر هنا لما المدرس ينزّلها لفصولك."
+          title="لسه مفيش كويزات هنا"
         />
       )}
     </>

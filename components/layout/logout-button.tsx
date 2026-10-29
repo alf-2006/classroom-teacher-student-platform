@@ -27,10 +27,10 @@ export function LogoutButton({ compact = false }: { compact?: boolean }) {
       disabled={pending}
       onClick={signOut}
       type="button"
-      aria-label="تسجيل الخروج"
+      aria-label="اخرج من الحساب"
     >
       <LogOut aria-hidden="true" size={18} />
-      {!compact ? (pending ? 'جارٍ الخروج…' : 'تسجيل الخروج') : null}
+      {!compact ? (pending ? 'بنخرج من الحساب…' : 'اخرج من الحساب') : null}
     </button>
   )
 }

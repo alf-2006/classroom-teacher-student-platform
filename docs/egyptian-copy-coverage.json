@@ -1,0 +1,134 @@
+[
+  {
+    "file": "app/layout.tsx",
+    "replacements": 3
+  },
+  {
+    "file": "app/error.tsx",
+    "replacements": 4
+  },
+  {
+    "file": "app/(teacher)/loading.tsx",
+    "replacements": 1
+  },
+  {
+    "file": "app/(auth)/login/page.tsx",
+    "replacements": 1
+  },
+  {
+    "file": "app/(auth)/register/page.tsx",
+    "replacements": 1
+  },
+  {
+    "file": "app/(teacher)/dashboard/page.tsx",
+    "replacements": 25
+  },
+  {
+    "file": "app/(teacher)/classes/page.tsx",
+    "replacements": 8
+  },
+  {
+    "file": "app/(teacher)/assignments/page.tsx",
+    "replacements": 9
+  },
+  {
+    "file": "app/(teacher)/quizzes/page.tsx",
+    "replacements": 10
+  },
+  {
+    "file": "app/(teacher)/students/page.tsx",
+    "replacements": 6
+  },
+  {
+    "file": "app/(teacher)/grades/page.tsx",
+    "replacements": 6
+  },
+  {
+    "file": "app/(teacher)/classes/[id]/page.tsx",
+    "replacements": 10
+  },
+  {
+    "file": "app/(teacher)/settings/ai/page.tsx",
+    "replacements": 8
+  },
+  {
+    "file": "app/(student)/student/loading.tsx",
+    "replacements": 1
+  },
+  {
+    "file": "app/(student)/student/dashboard/page.tsx",
+    "replacements": 20
+  },
+  {
+    "file": "app/(student)/student/classes/page.tsx",
+    "replacements": 6
+  },
+  {
+    "file": "app/(student)/student/assignments/page.tsx",
+    "replacements": 8
+  },
+  {
+    "file": "app/(student)/student/quizzes/page.tsx",
+    "replacements": 8
+  },
+  {
+    "file": "app/(student)/student/grades/page.tsx",
+    "replacements": 5
+  },
+  {
+    "file": "app/invite/[token]/page.tsx",
+    "replacements": 3
+  },
+  {
+    "file": "components/auth/auth-form.tsx",
+    "replacements": 17
+  },
+  {
+    "file": "components/auth/invite-join-card.tsx",
+    "replacements": 15
+  },
+  {
+    "file": "components/auth/account-frame.tsx",
+    "replacements": 10
+  },
+  {
+    "file": "components/layout/app-shell.tsx",
+    "replacements": 1
+  },
+  {
+    "file": "components/layout/logout-button.tsx",
+    "replacements": 3
+  },
+  {
+    "file": "components/layout/workspace-navigation.tsx",
+    "replacements": 7
+  },
+  {
+    "file": "components/ui/button.tsx",
+    "replacements": 1
+  },
+  {
+    "file": "components/classes/class-create-form.tsx",
+    "replacements": 13
+  },
+  {
+    "file": "components/classes/invite-create-form.tsx",
+    "replacements": 11
+  },
+  {
+    "file": "components/dashboard/page-elements.tsx",
+    "replacements": 1
+  },
+  {
+    "file": "components/landing/landing-motion.tsx",
+    "replacements": 6
+  },
+  {
+    "file": "lib/validation/classroom.ts",
+    "replacements": 6
+  },
+  {
+    "file": "lib/supabase/checked-query.ts",
+    "replacements": 1
+  }
+]

@@ -47,22 +47,22 @@ export default async function ClassDetailPage({ params }: { params: Promise<{ id
         href="/classes"
       >
         <ArrowRight aria-hidden="true" size={17} />
-        العودة إلى الفصول
+        ارجع للفصول
       </Link>
       <PageHeader
         eyebrow="تفاصيل الفصل"
         title={classRow.name}
-        description={classRow.description || 'أدر الدعوات والعضويات من هذه المساحة.'}
+        description={classRow.description || 'ظبّط دعوات الفصل وشوف مين دخل يوم من هنا.'}
       />
       <div className="grid gap-6 xl:grid-cols-[0.75fr_1.25fr]">
         <InviteCreateForm classId={classRow.id} />
         <section className="surface-card p-5 sm:p-6">
           <div className="flex items-start justify-between gap-3">
             <div>
-              <h2 className="text-lg font-semibold">الطلاب</h2>
+              <h2 className="text-lg font-semibold">الطلبة</h2>
               <p className="mt-1 text-sm text-muted">
                 {memberships?.filter((item) => item.status === 'active').length ?? 0} من{' '}
-                {classRow.capacity} مقعدًا مستخدمًا
+                {classRow.capacity} مكان مستخدم
               </p>
             </div>
             <span className="grid size-10 place-items-center rounded-xl bg-primary-50 text-primary-700">
@@ -82,11 +82,11 @@ export default async function ClassDetailPage({ params }: { params: Promise<{ id
                       <div className="min-w-0">
                         <p className="truncate font-semibold">{student?.display_name || 'طالب'}</p>
                         <p className="text-xs text-muted">
-                          انضم {formatArabicDate(membership.joined_at)}
+                          دخل يوم {formatArabicDate(membership.joined_at)}
                         </p>
                       </div>
                     </div>
-                    <StatusPill status={membership.status === 'active' ? 'نشط' : 'موقوف'} />
+                    <StatusPill status={membership.status === 'active' ? 'شغّال' : 'متوقّف'} />
                   </li>
                 )
               })}
@@ -94,8 +94,8 @@ export default async function ClassDetailPage({ params }: { params: Promise<{ id
           ) : (
             <div className="mt-5">
               <EmptyState
-                description="أصدر رابط الدعوة وأرسله للطلاب للبدء."
-                title="لا يوجد طلاب بعد"
+                description="اعمل لينك دعوة وابعته للطلبة. اللمة تبدأ من هنا."
+                title="لسه مفيش طلبة هنا"
               />
             </div>
           )}
