@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { RotateCcw } from 'lucide-react'
 import { clamp01, useElementMetrics, useLandingMotion, useScrollFrame } from './landing-motion'
 import { RIBBON_SEGMENTS, RIBBON_VIEWBOX } from './ribbon-path'
 
@@ -116,14 +115,6 @@ export function InkMark() {
     }
   }, [enabled])
 
-  function replay() {
-    const node = section.current
-    if (!node) return
-    delete node.dataset.play
-    void node.offsetWidth // restart the CSS timeline on purpose (one click, one reflow)
-    node.dataset.play = 'true'
-  }
-
   return (
     <section className="ink-section" id="line" ref={section}>
       <div className="landing-container ink-layout">
@@ -225,10 +216,6 @@ export function InkMark() {
             <span className="ink-caption mono" lang="en" dir="ltr" aria-hidden="true">
               FIG. 02 — ONE LINE
             </span>
-            <button type="button" className="ink-replay" onClick={replay}>
-              <RotateCcw size={15} aria-hidden="true" />
-              ارسمها تاني
-            </button>
           </div>
         </div>
       </div>

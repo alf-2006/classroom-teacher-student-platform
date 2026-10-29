@@ -97,5 +97,8 @@ describe('ribbon entrance', () => {
     expect(css).toContain(
       "html[data-motion='on'] .landing[data-ready] .ink-section:not([data-play]) .ink-stroke",
     )
+    expect(ink).not.toContain('ارسمها تاني')
+    expect(css).not.toContain('.ink-replay')
+    expect(page).not.toContain('<MotionControl />')
   })
 })

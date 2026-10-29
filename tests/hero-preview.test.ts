@@ -9,9 +9,9 @@ describe('original hero preview', () => {
     expect(page).not.toContain('<ScrollCinema>')
     expect(page).not.toContain('/scroll-sequence/')
   })
-  it('keeps the workflow, destinations and motion control', () => {
+  it('keeps the workflow and destinations without exposing motion controls', () => {
     expect(page).toContain('<WorkflowDemo />')
-    expect(page).toContain('<MotionControl />')
+    expect(page).not.toContain('<MotionControl />')
     expect(page).toContain('href="/register"')
     expect(page).toContain('href="/login"')
     expect(page).toContain('id="outcomes"')

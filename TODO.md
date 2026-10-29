@@ -123,3 +123,7 @@
 
 - [x] Give the 3D ribbon a strong entrance: it draws itself along its own path (loop → fold → check) in sync with the 01/02/03 list, settles from a 3D tilt, gets a light sheen, then idles with a gentle float (paused off screen), pointer depth on fine pointers and a «ارسمها تاني» replay. Keep the full static ribbon for reduced motion/pause and the same artwork as a no-JS fallback; load the transparent artwork lazily in one request.
 - [x] Add an opening intro for the site: paper curtain with the brand mark, the ribbon path drawn in ink, a highlighter under the wordmark and the tagline, then the paper and blue layers lift and hand off to the hero entrance. Once per session, never with reduced motion/pause/deep links, skippable by any key/click/wheel/touch without a jump, ended by CSS alone so it can never block the page, with no fake loading indicator.
+
+## Landing controls cleanup
+
+- [x] Remove the visible «وقّف الحركة» hero control and «ارسمها تاني» ribbon replay control; keep the live hero, automatic motion, reduced-motion behavior, and static/no-JS fallbacks unchanged.

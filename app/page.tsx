@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation'
 
 import { getCurrentContext } from '@/lib/auth/current-user'
 import { InkMark } from '@/components/landing/ink-mark'
-import { LandingMotion, MotionControl } from '@/components/landing/landing-motion'
+import { LandingMotion } from '@/components/landing/landing-motion'
 import { Manifesto } from '@/components/landing/manifesto'
 import { Marquee } from '@/components/landing/marquee'
 import { MOTION_BOOT_SCRIPT } from '@/components/landing/motion-boot'
@@ -55,7 +55,7 @@ const principles = [
   {
     icon: Sparkles,
     title: 'الحركة بتشرح، مش بتشتّت',
-    text: 'انزل بالراحة وشوف الحكاية، أو وقّف الحركة وقت ما تحب.',
+    text: 'انزل بالراحة وشوف الحكاية، والحركة بتوضح الخطوات من غير زحمة.',
   },
 ]
 
@@ -174,7 +174,6 @@ export default async function HomePage() {
                     <Check size={15} aria-hidden="true" />
                     صلاحيات بتحمي كل فصل
                   </span>
-                  <MotionControl />
                 </div>
               </div>
               <ProductScene />
