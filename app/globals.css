@@ -1,0 +1,198 @@
+@import 'tailwindcss';
+@import './landing.css';
+
+:root {
+  --background: #f8f8fc;
+  --surface: #ffffff;
+  --surface-subtle: #f0eff8;
+  --foreground: #0b1020;
+  --muted: #62697e;
+  --border: #e2e3ec;
+  --ink: #0b1020;
+  --ink-soft: #171d35;
+  --primary-50: #f0efff;
+  --primary-100: #e3e0ff;
+  --primary-500: #6557f5;
+  --primary-600: #5146d8;
+  --primary-700: #4035b8;
+  --sky-500: #0ea5e9;
+  --mint-50: #eafbf5;
+  --mint-600: #047857;
+  --coral-50: #fff0f3;
+  --coral-500: #fb7185;
+  --coral-600: #bf3655;
+  --success-50: #ecfdf3;
+  --success-600: #047857;
+  --warning-50: #fffaeb;
+  --warning-600: #a14b03;
+  --danger-50: #fef3f2;
+  --danger-600: #b42318;
+  --focus: #6557f5;
+  --shadow-card: 0 4px 20px rgb(11 16 32 / 0.045);
+  --radius-card: 1.25rem;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-subtle: var(--surface-subtle);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-primary-50: var(--primary-50);
+  --color-primary-100: var(--primary-100);
+  --color-primary-500: var(--primary-500);
+  --color-primary-600: var(--primary-600);
+  --color-primary-700: var(--primary-700);
+  --color-warning-50: var(--warning-50);
+  --color-success-50: var(--success-50);
+  --font-sans: var(--font-arabic), system-ui, sans-serif;
+}
+
+/* Base resets must not outrank Tailwind's utility layer. */
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  html {
+    background: var(--background);
+    scroll-behavior: smooth;
+  }
+  body {
+    min-height: 100vh;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-arabic), system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.75;
+    text-rendering: optimizeLegibility;
+  }
+  button,
+  input,
+  textarea,
+  select {
+    font-family: inherit;
+  }
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    letter-spacing: normal;
+    line-height: 1.4;
+  }
+  button,
+  input {
+    letter-spacing: normal;
+  }
+  :focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 4px;
+  }
+  :focus {
+    scroll-margin-block: 100px;
+  }
+  :target {
+    scroll-margin-top: 100px;
+  }
+  ::selection {
+    background: var(--primary-100);
+    color: var(--ink);
+  }
+}
+
+@layer components {
+  .skip-link {
+    position: fixed;
+    inset-inline-start: 1rem;
+    top: -6rem;
+    z-index: 100;
+    border-radius: 0.75rem;
+    background: var(--primary-700);
+    color: white;
+    padding: 0.65rem 0.95rem;
+  }
+  .skip-link:focus {
+    top: 1rem;
+  }
+  .app-shell {
+    min-height: 100vh;
+  }
+  .app-main {
+    min-width: 0;
+  }
+  .surface-card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    background: var(--surface);
+    box-shadow: var(--shadow-card);
+  }
+  .eyebrow {
+    color: var(--primary-700);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: normal;
+  }
+  .page-title {
+    font-size: clamp(1.5rem, 2vw + 1rem, 2.25rem);
+    font-weight: 700;
+    letter-spacing: normal;
+    line-height: 1.45;
+  }
+  .page-description {
+    color: var(--muted);
+    margin-top: 0.75rem;
+    line-height: 1.85;
+  }
+  .number-font {
+    font-family: var(--font-latin), var(--font-arabic), sans-serif;
+    font-variant-numeric: tabular-nums;
+  }
+  .app-button {
+    transition:
+      transform 160ms var(--ease-out),
+      background-color 160ms ease;
+  }
+  .app-button:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+  .app-button:focus-visible {
+    transform: none;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .interactive-card {
+    transition:
+      box-shadow 220ms ease,
+      border-color 220ms ease,
+      transform 220ms var(--ease-out);
+  }
+  .interactive-card:hover {
+    border-color: var(--primary-100);
+    box-shadow: 0 14px 34px rgb(81 70 216 / 0.09);
+    transform: translateY(-3px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

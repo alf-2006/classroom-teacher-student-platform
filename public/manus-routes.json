@@ -1,0 +1,72 @@
+{
+  "routes": [
+    {
+      "path": "/",
+      "title": "Public platform overview"
+    },
+    {
+      "path": "/login",
+      "title": "Phone and password sign in"
+    },
+    {
+      "path": "/register",
+      "title": "Student phone and password registration"
+    },
+    {
+      "path": "/invite/:token",
+      "title": "Class invitation enrollment"
+    },
+    {
+      "path": "/dashboard",
+      "title": "Teacher dashboard"
+    },
+    {
+      "path": "/classes",
+      "title": "Teacher classes"
+    },
+    {
+      "path": "/classes/:id",
+      "title": "Teacher class members and invites"
+    },
+    {
+      "path": "/assignments",
+      "title": "Teacher assignments"
+    },
+    {
+      "path": "/quizzes",
+      "title": "Teacher quizzes"
+    },
+    {
+      "path": "/students",
+      "title": "Teacher students"
+    },
+    {
+      "path": "/grades",
+      "title": "Teacher grades"
+    },
+    {
+      "path": "/settings/ai",
+      "title": "Teacher AI settings"
+    },
+    {
+      "path": "/student/dashboard",
+      "title": "Student dashboard"
+    },
+    {
+      "path": "/student/classes",
+      "title": "Student classes"
+    },
+    {
+      "path": "/student/assignments",
+      "title": "Student assignments"
+    },
+    {
+      "path": "/student/quizzes",
+      "title": "Student quizzes"
+    },
+    {
+      "path": "/student/grades",
+      "title": "Student grades"
+    }
+  ]
+}

@@ -1,0 +1,342 @@
+{
+  "environment": "http://127.0.0.1:3000 (optimized Next.js production runtime inside Sandbox, not public deployment)",
+  "browser": "Chromium",
+  "screenshots": [
+    "/home/ubuntu/classroom-qa/evidence/hero-375.png",
+    "/home/ubuntu/classroom-qa/evidence/story-375.png",
+    "/home/ubuntu/classroom-qa/evidence/cta-375.png",
+    "/home/ubuntu/classroom-qa/evidence/login-375.png",
+    "/home/ubuntu/classroom-qa/evidence/register-375.png",
+    "/home/ubuntu/classroom-qa/evidence/hero-1280.png",
+    "/home/ubuntu/classroom-qa/evidence/story-1280.png",
+    "/home/ubuntu/classroom-qa/evidence/cta-1280.png",
+    "/home/ubuntu/classroom-qa/evidence/login-1280.png",
+    "/home/ubuntu/classroom-qa/evidence/register-1280.png"
+  ],
+  "pages": [
+    {
+      "route": "/",
+      "width": 375,
+      "viewport": 375,
+      "document": 375,
+      "font": "\"IBM Plex Sans Arabic\", \"IBM Plex Sans Arabic Fallback\", system-ui, sans-serif",
+      "heading": {
+        "fontSize": "33px",
+        "lineHeight": "49.5px",
+        "spacing": "normal"
+      },
+      "unnamed": []
+    },
+    {
+      "route": "/login",
+      "width": 375,
+      "viewport": 375,
+      "document": 375,
+      "font": "\"IBM Plex Sans Arabic\", \"IBM Plex Sans Arabic Fallback\", system-ui, sans-serif",
+      "heading": {
+        "fontSize": "30px",
+        "lineHeight": "48.75px",
+        "spacing": "normal"
+      },
+      "unnamed": []
+    },
+    {
+      "route": "/register",
+      "width": 375,
+      "viewport": 375,
+      "document": 375,
+      "font": "\"IBM Plex Sans Arabic\", \"IBM Plex Sans Arabic Fallback\", system-ui, sans-serif",
+      "heading": {
+        "fontSize": "30px",
+        "lineHeight": "48.75px",
+        "spacing": "normal"
+      },
+      "unnamed": []
+    },
+    {
+      "route": "/invite/demo-review-token",
+      "width": 375,
+      "viewport": 375,
+      "document": 375,
+      "font": "\"IBM Plex Sans Arabic\", \"IBM Plex Sans Arabic Fallback\", system-ui, sans-serif",
+      "heading": {
+        "fontSize": "30px",
+        "lineHeight": "36px",
+        "spacing": "normal"
+      },
+      "unnamed": []
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "viewport": 768,
+      "document": 768,
+      "font": "\"IBM Plex Sans Arabic\", \"IBM Plex Sans Arabic Fallback\", system-ui, sans-serif",
+      "heading": {
+        "fontSize": "53.76px",
+        "lineHeight": "78.4896px",
+        "spacing": "normal"
+      },
+      "unnamed": []
+    },
+    {
+      "route": "/login",
+      "width": 768,
+      "viewport": 768,
+      "document": 768,
+      "font": "\"IBM Plex Sans Arabic\", \"IBM Plex Sans Arabic Fallback\", system-ui, sans-serif",
+      "heading": {
+        "fontSize": "30px",
+        "lineHeight": "48.75px",
+        "spacing": "normal"
+      },
+      "unnamed": []
+    },
+    {
+      "route": "/register",
+      "width": 768,
+      "viewport": 768,
+      "document": 768,
+      "font": "\"IBM Plex Sans Arabic\", \"IBM Plex Sans Arabic Fallback\", system-ui, sans-serif",
+      "heading": {
+        "fontSize": "30px",
+        "lineHeight": "48.75px",
+        "spacing": "normal"
+      },
+      "unnamed": []
+    },
+    {
+      "route": "/invite/demo-review-token",
+      "width": 768,
+      "viewport": 768,
+      "document": 768,
+      "font": "\"IBM Plex Sans Arabic\", \"IBM Plex Sans Arabic Fallback\", system-ui, sans-serif",
+      "heading": {
+        "fontSize": "30px",
+        "lineHeight": "36px",
+        "spacing": "normal"
+      },
+      "unnamed": []
+    },
+    {
+      "route": "/",
+      "width": 1280,
+      "viewport": 1280,
+      "document": 1280,
+      "font": "\"IBM Plex Sans Arabic\", \"IBM Plex Sans Arabic Fallback\", system-ui, sans-serif",
+      "heading": {
+        "fontSize": "58.88px",
+        "lineHeight": "85.9648px",
+        "spacing": "normal"
+      },
+      "unnamed": []
+    },
+    {
+      "route": "/login",
+      "width": 1280,
+      "viewport": 1280,
+      "document": 1280,
+      "font": "\"IBM Plex Sans Arabic\", \"IBM Plex Sans Arabic Fallback\", system-ui, sans-serif",
+      "heading": {
+        "fontSize": "30px",
+        "lineHeight": "48.75px",
+        "spacing": "normal"
+      },
+      "unnamed": []
+    },
+    {
+      "route": "/register",
+      "width": 1280,
+      "viewport": 1280,
+      "document": 1280,
+      "font": "\"IBM Plex Sans Arabic\", \"IBM Plex Sans Arabic Fallback\", system-ui, sans-serif",
+      "heading": {
+        "fontSize": "30px",
+        "lineHeight": "48.75px",
+        "spacing": "normal"
+      },
+      "unnamed": []
+    },
+    {
+      "route": "/invite/demo-review-token",
+      "width": 1280,
+      "viewport": 1280,
+      "document": 1280,
+      "font": "\"IBM Plex Sans Arabic\", \"IBM Plex Sans Arabic Fallback\", system-ui, sans-serif",
+      "heading": {
+        "fontSize": "30px",
+        "lineHeight": "36px",
+        "spacing": "normal"
+      },
+      "unnamed": []
+    },
+    {
+      "route": "/",
+      "width": 1920,
+      "viewport": 1920,
+      "document": 1920,
+      "font": "\"IBM Plex Sans Arabic\", \"IBM Plex Sans Arabic Fallback\", system-ui, sans-serif",
+      "heading": {
+        "fontSize": "64px",
+        "lineHeight": "93.44px",
+        "spacing": "normal"
+      },
+      "unnamed": []
+    },
+    {
+      "route": "/login",
+      "width": 1920,
+      "viewport": 1920,
+      "document": 1920,
+      "font": "\"IBM Plex Sans Arabic\", \"IBM Plex Sans Arabic Fallback\", system-ui, sans-serif",
+      "heading": {
+        "fontSize": "30px",
+        "lineHeight": "48.75px",
+        "spacing": "normal"
+      },
+      "unnamed": []
+    },
+    {
+      "route": "/register",
+      "width": 1920,
+      "viewport": 1920,
+      "document": 1920,
+      "font": "\"IBM Plex Sans Arabic\", \"IBM Plex Sans Arabic Fallback\", system-ui, sans-serif",
+      "heading": {
+        "fontSize": "30px",
+        "lineHeight": "48.75px",
+        "spacing": "normal"
+      },
+      "unnamed": []
+    },
+    {
+      "route": "/invite/demo-review-token",
+      "width": 1920,
+      "viewport": 1920,
+      "document": 1920,
+      "font": "\"IBM Plex Sans Arabic\", \"IBM Plex Sans Arabic Fallback\", system-ui, sans-serif",
+      "heading": {
+        "fontSize": "30px",
+        "lineHeight": "36px",
+        "spacing": "normal"
+      },
+      "unnamed": []
+    }
+  ],
+  "checks": [
+    {
+      "width": 375,
+      "buttons": [
+        {
+          "label": "إنشاء حساب طالب",
+          "color": "rgb(64, 53, 184)",
+          "background": "rgb(255, 255, 255)",
+          "height": 54,
+          "size": "15px"
+        },
+        {
+          "label": "تسجيل الدخول",
+          "color": "rgb(255, 255, 255)",
+          "background": "rgba(255, 255, 255, 0.02)",
+          "height": 54,
+          "size": "15px"
+        }
+      ]
+    },
+    {
+      "width": 1280,
+      "buttons": [
+        {
+          "label": "إنشاء حساب طالب",
+          "color": "rgb(64, 53, 184)",
+          "background": "rgb(255, 255, 255)",
+          "height": 54,
+          "size": "15px"
+        },
+        {
+          "label": "تسجيل الدخول",
+          "color": "rgb(255, 255, 255)",
+          "background": "rgba(255, 255, 255, 0.02)",
+          "height": 54,
+          "size": "15px"
+        }
+      ]
+    },
+    {
+      "motionPause": "passed",
+      "pointerTilt": "rotateX(2.64325deg) rotateY(3.45948deg)"
+    },
+    {
+      "workflowMouseAndKeyboard": "passed"
+    },
+    {
+      "reducedMotion": "passed",
+      "activeAnimations": 0
+    },
+    {
+      "fieldErrorsAndFocus": "passed",
+      "passwordToggle": "passed",
+      "submittedToSupabase": false
+    },
+    {
+      "preservedInviteDestination": "passed",
+      "authenticatedJoin": "not executed"
+    },
+    {
+      "protectedRedirect": "passed",
+      "externalReturnRejected": "passed"
+    },
+    {
+      "noJavaScriptContent": "passed",
+      "productionPreviewHydration": "passed",
+      "finalContrastRepair": "passed",
+      "motionAndTabsRecheck": "passed"
+    }
+  ],
+  "errors": [],
+  "axe": [
+    {
+      "route": "/",
+      "width": 375,
+      "violations": [],
+      "recheckedAfterRepair": true
+    },
+    {
+      "route": "/login",
+      "width": 375,
+      "violations": []
+    },
+    {
+      "route": "/register",
+      "width": 375,
+      "violations": []
+    },
+    {
+      "route": "/invite/demo-review-token",
+      "width": 375,
+      "violations": []
+    },
+    {
+      "route": "/",
+      "width": 1280,
+      "violations": [],
+      "recheckedAfterRepair": true
+    },
+    {
+      "route": "/login",
+      "width": 1280,
+      "violations": []
+    },
+    {
+      "route": "/register",
+      "width": 1280,
+      "violations": []
+    },
+    {
+      "route": "/invite/demo-review-token",
+      "width": 1280,
+      "violations": []
+    }
+  ],
+  "violations": 0
+}
