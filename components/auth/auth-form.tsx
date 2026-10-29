@@ -102,7 +102,7 @@ export function AuthForm({
   return (
     <form
       ref={formRef}
-      className="space-y-5"
+      className={isRegister ? 'space-y-5' : 'account-form'}
       noValidate
       onSubmit={handleSubmit}
       aria-busy={pending}
@@ -202,23 +202,36 @@ export function AuthForm({
       {message ? (
         <p
           role="alert"
-          className="rounded-xl border border-[#f4d3ab] bg-warning-50 px-3 py-3 text-sm leading-7 text-[var(--warning-600)]"
+          className="account-alert rounded-xl border border-[#f4d3ab] bg-warning-50 px-3 py-3 text-sm leading-7 text-[var(--warning-600)]"
         >
           {message}
         </p>
       ) : null}
-      <Button className="w-full" loading={pending} type="submit">
-        {isRegister ? 'إنشاء حساب طالب' : 'تسجيل الدخول'}
-      </Button>
-      <p className="text-center text-sm leading-7 text-muted">
-        {isRegister ? 'لديك حساب بالفعل؟' : 'لا تملك حسابًا؟'}{' '}
-        <Link
-          className="font-semibold text-primary-700 underline underline-offset-4"
-          href={`${isRegister ? '/login' : '/register'}${authSuffix}`}
-        >
-          {isRegister ? 'تسجيل الدخول' : 'إنشاء حساب طالب'}
-        </Link>
-      </p>
+      {isRegister ? (
+        <>
+          <Button className="w-full" loading={pending} type="submit">
+            إنشاء حساب طالب
+          </Button>
+          <p className="text-center text-sm leading-7 text-muted">
+            لديك حساب بالفعل؟{' '}
+            <Link
+              className="font-semibold text-primary-700 underline underline-offset-4"
+              href={`/login${authSuffix}`}
+            >
+              تسجيل الدخول
+            </Link>
+          </p>
+        </>
+      ) : (
+        <div className="account-actions">
+          <Link className="account-create" href={`/register${authSuffix}`}>
+            إنشاء حساب طالب
+          </Link>
+          <Button className="account-submit" loading={pending} type="submit">
+            تسجيل الدخول
+          </Button>
+        </div>
+      )}
     </form>
   )
 }

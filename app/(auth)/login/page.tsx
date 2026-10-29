@@ -1,5 +1,5 @@
 import { AuthForm } from '@/components/auth/auth-form'
-import { AuthFrame } from '@/components/auth/auth-frame'
+import { LoginFrame } from '@/components/auth/login-frame'
 import { safeReturnPath } from '@/lib/auth/safe-return-path'
 
 export const metadata = { title: 'تسجيل الدخول' }
@@ -10,8 +10,8 @@ export default async function LoginPage({
 }) {
   const params = await searchParams
   return (
-    <AuthFrame>
+    <LoginFrame>
       <AuthForm mode="login" returnPath={safeReturnPath(params.next)} />
-    </AuthFrame>
+    </LoginFrame>
   )
 }

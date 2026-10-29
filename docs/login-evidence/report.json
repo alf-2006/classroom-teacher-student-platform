@@ -1,0 +1,83 @@
+{
+  "results": [
+    {
+      "width": 375,
+      "overflow": false,
+      "fields": [
+        {
+          "id": "phone",
+          "height": 60,
+          "font": "16px"
+        },
+        {
+          "id": "password",
+          "height": 60,
+          "font": "16px"
+        }
+      ],
+      "buttonHeight": 48,
+      "violations": []
+    },
+    {
+      "width": 768,
+      "overflow": false,
+      "fields": [
+        {
+          "id": "phone",
+          "height": 60,
+          "font": "16px"
+        },
+        {
+          "id": "password",
+          "height": 60,
+          "font": "16px"
+        }
+      ],
+      "buttonHeight": 48,
+      "violations": []
+    },
+    {
+      "width": 1280,
+      "overflow": false,
+      "fields": [
+        {
+          "id": "phone",
+          "height": 60,
+          "font": "16px"
+        },
+        {
+          "id": "password",
+          "height": 60,
+          "font": "16px"
+        }
+      ],
+      "buttonHeight": 48,
+      "violations": []
+    },
+    {
+      "width": 1920,
+      "overflow": false,
+      "fields": [
+        {
+          "id": "phone",
+          "height": 60,
+          "font": "16px"
+        },
+        {
+          "id": "password",
+          "height": 60,
+          "font": "16px"
+        }
+      ],
+      "buttonHeight": 48,
+      "violations": []
+    }
+  ],
+  "errors": [],
+  "fieldErrors": "passed",
+  "passwordToggle": "passed",
+  "preservedInvitation": "passed",
+  "registerOriginalLayout": "passed",
+  "reducedMotion": "passed",
+  "submittedToSupabase": false
+}

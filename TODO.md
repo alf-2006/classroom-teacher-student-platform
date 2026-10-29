@@ -83,3 +83,7 @@
 - [x] Remove cosmetic links without destinations and identify illustrative product data as a demo; do not claim unfinished workflows are live.
 - [x] Make all workspace navigation destinations reachable on mobile and mark the current page accessibly; improve common button, form error and status styling.
 - [x] Save evidence and a concise review report describing repaired and still-unverified behavior.
+
+## Premium Google-inspired login
+
+- [x] Redesign `/login` only as a quiet Material-inspired white wide card on a pale backdrop, with outlined readable Arabic fields, pill actions, clear focus and a mobile-friendly stack. Preserve Classroom identity, the existing field order/names, Supabase phone/password behavior, validation announcements, password toggle, autofill and invitation return paths. Do not add fake Google login, reset links, policies, or testimonials. Keep registration and the landing unchanged; show the existing provider-setup limitation clearly.

@@ -1,0 +1,319 @@
+/* Deliberately scoped overrides for the login surface, not global resets. */
+.account-page {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 56px 32px;
+  background: #f0f4f9;
+  color: var(--foreground);
+}
+.account-container {
+  width: 100%;
+  max-width: 1040px;
+}
+.account-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 72px;
+  min-height: 448px;
+  padding: 44px 44px 40px;
+  border: 1px solid rgb(255 255 255 / 80%);
+  border-radius: 28px;
+  background: white;
+  animation: account-arrive 240ms var(--ease-out) both;
+}
+.account-intro {
+  min-width: 0;
+}
+.account-brand {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 11px;
+  width: fit-content;
+  border-radius: 8px;
+  font-size: 21px;
+  font-weight: 700;
+}
+.account-brand img {
+  border-radius: 10px;
+}
+.account-intro h1 {
+  margin-top: 30px;
+  font-size: clamp(32px, 3.25vw, 42px);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: normal;
+}
+.account-subtitle {
+  margin-top: 8px;
+  font-size: 17px;
+  line-height: 1.9;
+}
+.account-subtitle bdi {
+  font-size: 16px;
+}
+.account-intro-note {
+  margin-top: 40px;
+  font-size: 14px;
+  line-height: 2;
+  color: var(--muted);
+}
+.account-form-column {
+  min-width: 0;
+  padding-top: 33px;
+}
+.account-form {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.account-form > * {
+  margin: 0;
+}
+.account-form label:has(> input),
+.account-form > div:has(#password) {
+  position: relative;
+}
+.account-form label:has(> input) > span:first-child,
+.account-form label[for='password'] {
+  position: absolute;
+  z-index: 2;
+  top: -12px;
+  inset-inline-start: 12px;
+  margin: 0;
+  padding: 0 6px;
+  width: fit-content;
+  background: white;
+  color: #4d5262;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 24px;
+  pointer-events: none;
+  transition: color 140ms ease;
+}
+.account-form label:has(input:focus) > span:first-child,
+.account-form > div:has(#password:focus) > label {
+  color: var(--primary-700);
+}
+.account-form label:has(input[aria-invalid='true']) > span:first-child,
+.account-form > div:has(#password[aria-invalid='true']) > label {
+  color: var(--danger-600);
+}
+.account-form input {
+  min-height: 60px;
+  padding: 14px 16px;
+  border: 1px solid #747b88;
+  border-radius: 5px;
+  background: white;
+  color: var(--foreground);
+  font-size: 16px;
+  line-height: 1.8;
+  box-shadow: none;
+  transition:
+    border-color 140ms ease,
+    box-shadow 140ms ease;
+}
+.account-form input::placeholder {
+  color: #707785;
+  opacity: 1;
+}
+.account-form input:hover {
+  border-color: #383e4b;
+}
+.account-form input:focus {
+  border-color: var(--primary-700);
+  box-shadow: inset 0 0 0 1px var(--primary-700);
+  outline: none;
+}
+.account-form input[aria-invalid='true'] {
+  border-color: var(--danger-600);
+}
+.account-form input[aria-invalid='true']:focus {
+  box-shadow: inset 0 0 0 1px var(--danger-600);
+}
+.account-form #password {
+  padding-left: 56px;
+  padding-right: 16px;
+}
+.account-form #phone-hint {
+  padding-inline: 2px;
+  margin-top: 8px;
+  font-size: 12px;
+  color: #5e6677;
+}
+.account-form button[aria-label*='كلمة المرور'] {
+  color: #596174;
+  border-radius: 50%;
+}
+.account-form button[aria-label*='كلمة المرور']:hover {
+  background: #f0f4f9;
+}
+.account-form .account-alert {
+  font-size: 13px;
+  border-radius: 8px;
+}
+.account-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 12px;
+}
+.account-create {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 10px 15px;
+  border-radius: 999px;
+  color: var(--primary-700);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.8;
+  transition: background-color 140ms ease;
+}
+.account-create:hover {
+  background: var(--primary-50);
+}
+.account-actions .account-submit {
+  min-height: 48px;
+  min-width: 130px;
+  padding: 11px 24px;
+  border-radius: 999px;
+  background: var(--primary-600);
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: none;
+}
+.account-actions .account-submit:hover {
+  background: var(--primary-700);
+  box-shadow: 0 2px 6px rgb(64 53 184 / 14%);
+}
+.account-actions .account-submit:disabled {
+  cursor: wait;
+  background: #747092;
+  box-shadow: none;
+}
+.account-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px 0;
+  color: #555e6e;
+  font-size: 12px;
+}
+.account-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 40px;
+  border-radius: 6px;
+}
+.account-home:hover {
+  color: var(--primary-700);
+}
+.account-service-note {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 7px;
+  margin-top: 20px;
+  color: #5b6374;
+  font-size: 12px;
+  line-height: 1.85;
+}
+.account-service-note svg {
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+@keyframes account-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 900px) {
+  .account-page {
+    padding: 48px 24px;
+  }
+  .account-container {
+    max-width: 580px;
+  }
+  .account-card {
+    grid-template-columns: 1fr;
+    padding: 36px;
+    min-height: 0;
+  }
+  .account-intro h1 {
+    margin-top: 24px;
+    font-size: 36px;
+  }
+  .account-intro-note {
+    display: none;
+  }
+  .account-form-column {
+    padding-top: 40px;
+  }
+}
+@media (max-width: 520px) {
+  .account-page {
+    justify-content: flex-start;
+    padding: 0;
+    background: white;
+  }
+  .account-card {
+    border: 0;
+    border-radius: 0;
+    padding: 36px 24px 28px;
+  }
+  .account-brand {
+    font-size: 20px;
+  }
+  .account-intro h1 {
+    margin-top: 30px;
+    font-size: 32px;
+  }
+  .account-subtitle {
+    font-size: 16px;
+  }
+  .account-form-column {
+    padding-top: 40px;
+  }
+  .account-actions {
+    gap: 8px;
+    padding-top: 14px;
+  }
+  .account-create {
+    padding-inline: 8px;
+    font-size: 13px;
+  }
+  .account-submit {
+    min-width: 120px;
+  }
+  .account-footer {
+    padding: 0 24px;
+  }
+  .account-service-note {
+    margin: 18px 24px 24px;
+    justify-content: flex-start;
+    font-size: 11px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .account-card {
+    animation: none;
+  }
+}
+@media (forced-colors: active) {
+  .account-form input:focus {
+    outline: 2px solid Highlight;
+  }
+}
