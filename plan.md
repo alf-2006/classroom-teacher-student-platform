@@ -106,3 +106,7 @@ Route Groups لا تظهر في URL؛ لذلك مسارات الطالب تحت 
 ## تسجيل الدخول — Google-inspired Material calm
 
 طلب المستخدم صفحة دخول شبيهة بـ Google وفخمة. هذا Redesign · Overhaul لواجهة `/login` فقط، لا نقل للعلامة ولا إضافة Google OAuth. الهوية Classroom وخط IBM Plex Sans Arabic ولون Indigo تبقى. المشهد هادئ: خلفية `#f0f4f9`، بطاقة بيضاء بعرض أقصى 1040px وزاوية 28px بلا shadow ثقيل، عنوان 40px بوزن 400–500، مسافات 8/16/24/40px، وحقول outline بارتفاع 60px وزوايا 5px. عنوان العلامة يمين البطاقة والنموذج يسارها؛ على الموبايل ترتيب عمودي وبطاقة ممتدة بلا هامش يضغط الحقول. أزرار pill وتركيز واضح، وحركة دخول واحدة 240ms محترمة reduced-motion. Visual variance 3/10، motion 2/10، density 3/10، asset dependence 2/10، fidelity 8/10. لا gradients ولا رسوم تعليمية ولا روابط استعادة كلمة مرور غير منفذة. form field names/order وSupabase validation وsafeReturnPath وerror announcements/autofill لا تتغير. `AuthFrame` ومسار التسجيل يبقيان كما هما؛ غلاف `LoginFrame` وCSS scoped يملكان التغيير البصري، مع ترتيب action row منفصل في حالة login فقط.
+
+## توحيد إنشاء الحساب مع تسجيل الدخول
+
+طلب المستخدم تطبيق التصميم نفسه على `/register`، وليس الاحتفاظ بالشكل السابق. يستخدم المساران `AccountFrame` واحدًا و`account-form` وaction row واحدين؛ الاختلاف في العنوان والنص والحقول المطلوبة فقط. نفس الخلفية والبطاقة والخط والـ outline والـ pill وحالات التركيز. البطاقة تنمو طبيعيًا لحقول التسجيل الأربعة دون ارتفاع ثابت أو إخفاء المحتوى على الموبايل. تبقى schemas وpassword confirmation وautofill ومسار الدعوة دون تغيير.

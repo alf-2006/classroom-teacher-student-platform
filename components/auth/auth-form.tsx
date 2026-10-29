@@ -102,7 +102,7 @@ export function AuthForm({
   return (
     <form
       ref={formRef}
-      className={isRegister ? 'space-y-5' : 'account-form'}
+      className="account-form"
       noValidate
       onSubmit={handleSubmit}
       aria-busy={pending}
@@ -207,31 +207,17 @@ export function AuthForm({
           {message}
         </p>
       ) : null}
-      {isRegister ? (
-        <>
-          <Button className="w-full" loading={pending} type="submit">
-            إنشاء حساب طالب
-          </Button>
-          <p className="text-center text-sm leading-7 text-muted">
-            لديك حساب بالفعل؟{' '}
-            <Link
-              className="font-semibold text-primary-700 underline underline-offset-4"
-              href={`/login${authSuffix}`}
-            >
-              تسجيل الدخول
-            </Link>
-          </p>
-        </>
-      ) : (
-        <div className="account-actions">
-          <Link className="account-create" href={`/register${authSuffix}`}>
-            إنشاء حساب طالب
-          </Link>
-          <Button className="account-submit" loading={pending} type="submit">
-            تسجيل الدخول
-          </Button>
-        </div>
-      )}
+      <div className="account-actions">
+        <Link
+          className="account-create"
+          href={`${isRegister ? '/login' : '/register'}${authSuffix}`}
+        >
+          {isRegister ? 'تسجيل الدخول' : 'إنشاء حساب طالب'}
+        </Link>
+        <Button className="account-submit" loading={pending} type="submit">
+          {isRegister ? 'إنشاء حساب طالب' : 'تسجيل الدخول'}
+        </Button>
+      </div>
     </form>
   )
 }

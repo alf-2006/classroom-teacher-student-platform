@@ -87,3 +87,7 @@
 ## Premium Google-inspired login
 
 - [x] Redesign `/login` only as a quiet Material-inspired white wide card on a pale backdrop, with outlined readable Arabic fields, pill actions, clear focus and a mobile-friendly stack. Preserve Classroom identity, the existing field order/names, Supabase phone/password behavior, validation announcements, password toggle, autofill and invitation return paths. Do not add fake Google login, reset links, policies, or testimonials. Keep registration and the landing unchanged; show the existing provider-setup limitation clearly.
+
+## Unified authentication design
+
+- [x] Use the same reusable account frame and form styling for `/login` and `/register`: identical background, card, fonts, outline fields, focus/error states and pill actions. Preserve all four registration fields, password confirmation, existing Supabase submission behavior and safe invitation navigation. Responsive height must grow with the registration form rather than clip it. Landing and workspace pages remain unchanged.

@@ -21,3 +21,14 @@ NEXT_BUILD_DIR=.next-login pnpm start
 ```
 
 المنفذ الرئيسي ما زال 3000. `.next-login` مستثنى من Git وESLint مثل بقية المخرجات المولّدة. لم تتغير طريقة المصادقة أو مزوّدها.
+
+## توحيد الصفحتين
+
+بعد توحيد `/login` و`/register` في `AccountFrame` واحد، عادت المعاينة الحالية إلى المخرجات `.next-production`:
+
+```bash
+NEXT_BUILD_DIR=.next-production pnpm build
+NEXT_BUILD_DIR=.next-production pnpm start
+```
+
+المنفذ 3000 والمصادقة نفسها دون تغيير.

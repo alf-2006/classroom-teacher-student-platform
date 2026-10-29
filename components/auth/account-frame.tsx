@@ -3,7 +3,14 @@ import Link from 'next/link'
 import { ArrowRight, Info } from 'lucide-react'
 import type { ReactNode } from 'react'
 
-export function LoginFrame({ children }: { children: ReactNode }) {
+export function AccountFrame({
+  mode,
+  children,
+}: {
+  mode: 'login' | 'register'
+  children: ReactNode
+}) {
+  const register = mode === 'register'
   return (
     <main id="main-content" className="account-page">
       <div className="account-container">
@@ -15,17 +22,17 @@ export function LoginFrame({ children }: { children: ReactNode }) {
                 Classroom
               </span>
             </Link>
-            <h1 id="account-title">تسجيل الدخول</h1>
+            <h1 id="account-title">{register ? 'إنشاء حساب طالب' : 'تسجيل الدخول'}</h1>
             <p className="account-subtitle">
-              إلى حسابك في{' '}
+              {register ? 'ابدأ مساحتك في ' : 'إلى حسابك في '}
               <bdi className="number-font" lang="en">
                 Classroom
               </bdi>
             </p>
             <p className="account-intro-note">
-              فصلك، وطلابك، وخطوتك التالية.
+              {register ? 'أنشئ حسابك، ثم انضم بدعوة المدرس.' : 'فصلك، وطلابك، وخطوتك التالية.'}
               <br />
-              كل شيء في مكانه.
+              {register ? 'بداية واضحة، في المكان الصحيح.' : 'كل شيء في مكانه.'}
             </p>
           </header>
           <div className="account-form-column">{children}</div>

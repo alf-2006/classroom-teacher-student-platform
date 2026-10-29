@@ -1,0 +1,106 @@
+{
+  "results": [
+    {
+      "width": 375,
+      "overflow": false,
+      "fields": [
+        {
+          "name": "fullName",
+          "height": 60
+        },
+        {
+          "name": "phone",
+          "height": 60
+        },
+        {
+          "name": "password",
+          "height": 60
+        },
+        {
+          "name": "confirmPassword",
+          "height": 60
+        }
+      ],
+      "bg": "rgb(255, 255, 255)",
+      "violations": []
+    },
+    {
+      "width": 768,
+      "overflow": false,
+      "fields": [
+        {
+          "name": "fullName",
+          "height": 60
+        },
+        {
+          "name": "phone",
+          "height": 60
+        },
+        {
+          "name": "password",
+          "height": 60
+        },
+        {
+          "name": "confirmPassword",
+          "height": 60
+        }
+      ],
+      "bg": "rgb(240, 244, 249)",
+      "violations": []
+    },
+    {
+      "width": 1280,
+      "overflow": false,
+      "fields": [
+        {
+          "name": "fullName",
+          "height": 60
+        },
+        {
+          "name": "phone",
+          "height": 60
+        },
+        {
+          "name": "password",
+          "height": 60
+        },
+        {
+          "name": "confirmPassword",
+          "height": 60
+        }
+      ],
+      "bg": "rgb(240, 244, 249)",
+      "violations": []
+    },
+    {
+      "width": 1920,
+      "overflow": false,
+      "fields": [
+        {
+          "name": "fullName",
+          "height": 60
+        },
+        {
+          "name": "phone",
+          "height": 60
+        },
+        {
+          "name": "password",
+          "height": 60
+        },
+        {
+          "name": "confirmPassword",
+          "height": 60
+        }
+      ],
+      "bg": "rgb(240, 244, 249)",
+      "violations": []
+    }
+  ],
+  "errors": [],
+  "passwordConfirmation": "passed",
+  "validationFocus": "passed",
+  "inviteRoundtrip": "passed",
+  "sharedFrame": "passed",
+  "supabaseAccountCreated": false
+}
