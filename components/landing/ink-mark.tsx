@@ -1,7 +1,9 @@
 'use client'
 
-import { useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { RotateCcw } from 'lucide-react'
 import { clamp01, useElementMetrics, useLandingMotion, useScrollFrame } from './landing-motion'
+import { RIBBON_SEGMENTS, RIBBON_VIEWBOX } from './ribbon-path'
 
 const meanings = [
   { number: '01', title: 'اللفّة', text: 'دعوة خاصة بتلمّ طلبة الفصل في مكان واحد.' },
@@ -9,12 +11,62 @@ const meanings = [
   { number: '03', title: 'علامة الصح', text: 'القرار الأخير للمدرس، وبعدها النتيجة تنزل.' },
 ]
 
+const LABEL = 'شريط أزرق واحد بيبدأ بلفّة وبيخلص بعلامة صح'
+const { width: W, height: H } = RIBBON_VIEWBOX
+
 export function InkMark() {
   const { enabled } = useLandingMotion()
   const section = useRef<HTMLElement>(null)
+  const figureBox = useRef<HTMLDivElement>(null)
   const figure = useRef<HTMLDivElement>(null)
+  const tilt = useRef<HTMLDivElement>(null)
   const metrics = useElementMetrics(section, enabled)
+  const [src, setSrc] = useState<string | null>(null)
 
+  /* Load the transparent artwork only when the section gets close. */
+  useEffect(() => {
+    const box = figureBox.current
+    if (!box || src) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return
+        const needed = box.clientWidth * (window.devicePixelRatio || 1)
+        setSrc(`/landing/ink-ribbon-alpha-${needed > 760 ? 1200 : 720}.webp`)
+        observer.disconnect()
+      },
+      { rootMargin: '900px 0px' },
+    )
+    observer.observe(box)
+    return () => observer.disconnect()
+  }, [src])
+
+  /* Play the entrance once the figure is well in view; idle loops pause off screen. */
+  useEffect(() => {
+    const node = section.current
+    const box = figureBox.current
+    if (!node || !box || !enabled) return
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.target === node) {
+            if (entry.isIntersecting) delete node.dataset.offscreen
+            else node.dataset.offscreen = 'true'
+          } else if (entry.intersectionRatio >= 0.35) {
+            node.dataset.play = 'true'
+          }
+        })
+      },
+      { threshold: [0, 0.35] },
+    )
+    observer.observe(node)
+    observer.observe(box)
+    return () => {
+      observer.disconnect()
+      delete node.dataset.offscreen
+    }
+  }, [enabled])
+
+  /* Gentle scroll parallax on the outer wrapper. */
   useScrollFrame((y, viewport) => {
     const element = figure.current
     if (!element) return
@@ -25,6 +77,52 @@ export function InkMark() {
     const turn = (0.5 - progress) * -7
     element.style.transform = `translate3d(0, ${shift.toFixed(1)}px, 0) rotate(${turn.toFixed(2)}deg)`
   }, enabled)
+
+  /* Pointer depth on fine pointers only, eased with one rAF loop. */
+  useEffect(() => {
+    const box = figureBox.current
+    const card = tilt.current
+    if (!box || !card || !enabled || !matchMedia('(hover: hover) and (pointer: fine)').matches)
+      return
+    let frame = 0
+    let x = 0,
+      y = 0,
+      targetX = 0,
+      targetY = 0
+    const tick = () => {
+      x += (targetX - x) * 0.09
+      y += (targetY - y) * 0.09
+      card.style.transform = `perspective(1200px) rotateX(${y.toFixed(2)}deg) rotateY(${x.toFixed(2)}deg)`
+      frame = Math.abs(targetX - x) + Math.abs(targetY - y) > 0.02 ? requestAnimationFrame(tick) : 0
+    }
+    const move = (event: PointerEvent) => {
+      const bounds = box.getBoundingClientRect()
+      targetX = ((event.clientX - bounds.left) / bounds.width - 0.5) * 14
+      targetY = -((event.clientY - bounds.top) / bounds.height - 0.5) * 10
+      if (!frame) frame = requestAnimationFrame(tick)
+    }
+    const reset = () => {
+      targetX = 0
+      targetY = 0
+      if (!frame) frame = requestAnimationFrame(tick)
+    }
+    box.addEventListener('pointermove', move)
+    box.addEventListener('pointerleave', reset)
+    return () => {
+      box.removeEventListener('pointermove', move)
+      box.removeEventListener('pointerleave', reset)
+      cancelAnimationFrame(frame)
+      card.style.transform = ''
+    }
+  }, [enabled])
+
+  function replay() {
+    const node = section.current
+    if (!node) return
+    delete node.dataset.play
+    void node.offsetWidth // restart the CSS timeline on purpose (one click, one reflow)
+    node.dataset.play = 'true'
+  }
 
   return (
     <section className="ink-section" id="line" ref={section}>
@@ -60,23 +158,78 @@ export function InkMark() {
             ))}
           </ol>
         </div>
-        <div className="ink-figure" data-reveal data-delay="1">
+        <div className="ink-figure" ref={figureBox}>
           <div className="ink-figure-inner" ref={figure}>
-            {/* eslint-disable-next-line @next/next/no-img-element -- pre-sized static WebP pair, no optimizer needed */}
-            <img
-              src="/landing/ink-ribbon-1200.webp"
-              srcSet="/landing/ink-ribbon-720.webp 720w, /landing/ink-ribbon-1200.webp 1200w"
-              sizes="(min-width: 1024px) 48vw, 92vw"
-              width={1200}
-              height={552}
-              loading="lazy"
-              decoding="async"
-              alt="شريط أزرق واحد بيبدأ بلفّة وبيخلص بعلامة صح"
-            />
+            <div className="ink-enter">
+              <div className="ink-float">
+                <div className="ink-tilt" ref={tilt}>
+                  <svg
+                    className="ink-ribbon"
+                    viewBox={`0 0 ${W} ${H}`}
+                    role="img"
+                    aria-label={LABEL}
+                    focusable="false"
+                  >
+                    <defs>
+                      <mask
+                        id="ink-reveal-mask"
+                        maskUnits="userSpaceOnUse"
+                        x="0"
+                        y="0"
+                        width={W}
+                        height={H}
+                      >
+                        {RIBBON_SEGMENTS.map(({ key, d, width }) => (
+                          <path
+                            key={key}
+                            className={`ink-stroke ink-stroke-${key}`}
+                            d={d}
+                            pathLength={1}
+                            strokeWidth={width}
+                          />
+                        ))}
+                      </mask>
+                    </defs>
+                    {src ? (
+                      <image
+                        href={src}
+                        width={W}
+                        height={H}
+                        crossOrigin="anonymous"
+                        mask="url(#ink-reveal-mask)"
+                      />
+                    ) : null}
+                  </svg>
+                  <span
+                    className="ink-sheen"
+                    aria-hidden="true"
+                    style={
+                      src ? { WebkitMaskImage: `url(${src})`, maskImage: `url(${src})` } : undefined
+                    }
+                  />
+                </div>
+              </div>
+            </div>
           </div>
-          <span className="ink-caption mono" lang="en" dir="ltr" aria-hidden="true">
-            FIG. 02 — ONE LINE
-          </span>
+          <noscript>
+            {/* eslint-disable-next-line @next/next/no-img-element -- no-JS fallback of the same artwork */}
+            <img
+              className="ink-fallback"
+              src="/landing/ink-ribbon-1200.webp"
+              width={W}
+              height={H}
+              alt={LABEL}
+            />
+          </noscript>
+          <div className="ink-meta">
+            <span className="ink-caption mono" lang="en" dir="ltr" aria-hidden="true">
+              FIG. 02 — ONE LINE
+            </span>
+            <button type="button" className="ink-replay" onClick={replay}>
+              <RotateCcw size={15} aria-hidden="true" />
+              ارسمها تاني
+            </button>
+          </div>
         </div>
       </div>
     </section>

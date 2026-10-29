@@ -10,6 +10,7 @@ import { Marquee } from '@/components/landing/marquee'
 import { MOTION_BOOT_SCRIPT } from '@/components/landing/motion-boot'
 import { ProductScene } from '@/components/landing/product-scene'
 import { SectionRail, type Chapter } from '@/components/landing/section-rail'
+import { SiteIntro } from '@/components/landing/site-intro'
 import { WorkflowDemo } from '@/components/landing/workflow-demo'
 
 const chapters: Chapter[] = [
@@ -92,6 +93,7 @@ export default async function HomePage() {
     <>
       <script dangerouslySetInnerHTML={{ __html: MOTION_BOOT_SCRIPT }} />
       <LandingMotion>
+        <SiteIntro />
         <header className="landing-header">
           <div className="landing-container header-inner">
             <Brand />

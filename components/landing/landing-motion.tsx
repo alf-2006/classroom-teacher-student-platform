@@ -52,6 +52,8 @@ function writeStored(value: 'on' | 'off' | null) {
 }
 
 function applyMode(mode: 'on' | 'off') {
+  // A manual switch ends the opening curtain and its hero hand-off delay.
+  delete document.documentElement.dataset.intro
   document.documentElement.dataset.motion = mode
   window.dispatchEvent(new Event(CHANGE_EVENT))
 }
@@ -190,6 +192,7 @@ export function LandingMotion({ children }: { children: ReactNode }) {
     if (!html.dataset.motion) applyMode(deriveMode())
     return () => {
       delete html.dataset.motion
+      delete html.dataset.intro
     }
   }, [])
 

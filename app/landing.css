@@ -1019,15 +1019,109 @@
   .ink-figure {
     position: relative;
   }
-  .ink-figure img {
+  .ink-enter,
+  .ink-float,
+  .ink-tilt {
+    position: relative;
+  }
+  .ink-tilt {
+    transform-origin: 50% 60%;
+  }
+  .ink-ribbon,
+  .ink-fallback {
     display: block;
     width: 100%;
     height: auto;
+    aspect-ratio: 1200 / 552;
+    overflow: visible;
+  }
+  html:not([data-motion]) .ink-ribbon {
+    display: none;
+  }
+  .ink-stroke {
+    fill: none;
+    stroke: #fff;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 1 2;
+    stroke-dashoffset: 0;
+  }
+  .ink-sheen {
+    position: absolute;
+    inset: 0;
+    display: none;
+    overflow: hidden;
+    pointer-events: none;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+  }
+  .ink-sheen::before {
+    content: '';
+    position: absolute;
+    inset: -10% -35%;
+    background: linear-gradient(
+      100deg,
+      transparent 40%,
+      rgb(255 255 255 / 0.62) 50%,
+      transparent 60%
+    );
+  }
+  .meaning-list li {
+    position: relative;
+  }
+  .ink-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 18px;
+  }
+  .ink-replay {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    min-height: 40px;
+    padding: 0 16px;
+    border: 1px solid var(--rule-strong);
+    border-radius: 999px;
+    background: var(--paper);
+    color: var(--ink-2);
+    font: inherit;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+      transform 160ms var(--ease-out),
+      border-color 160ms ease,
+      color 160ms ease;
+  }
+  html[data-motion='on'] .ink-replay {
+    display: inline-flex;
+  }
+  .ink-replay svg {
+    transition: transform 420ms var(--ease-out);
+  }
+  .ink-replay:active {
+    transform: scale(0.97);
+  }
+  .ink-replay:focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: 3px;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .ink-replay:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+    .ink-replay:hover svg {
+      transform: rotate(-200deg);
+    }
   }
   .ink-caption {
-    position: absolute;
-    bottom: -14px;
-    inset-inline-end: 0;
     color: var(--muted);
     font-size: 0.66rem;
     letter-spacing: 0.16em;
@@ -1665,53 +1759,53 @@
   }
 
   html[data-motion='on'] .landing .hero-line > span {
-    animation: landing-line-up 900ms var(--ease-out) 80ms both;
+    animation: landing-line-up 900ms var(--ease-out) calc(var(--intro-delay, 0ms) + 80ms) both;
   }
   html[data-motion='on'] .landing .hero-line:nth-child(2) > span {
-    animation-delay: 170ms;
+    animation-delay: calc(var(--intro-delay, 0ms) + 170ms);
   }
   html[data-motion='on'] .landing .hl::before {
-    animation: landing-marker 650ms var(--ease-in-out) 820ms both;
+    animation: landing-marker 650ms var(--ease-in-out) calc(var(--intro-delay, 0ms) + 820ms) both;
   }
   html[data-motion='on'] .landing .intro {
-    animation: landing-rise 700ms var(--ease-out) both;
+    animation: landing-rise 700ms var(--ease-out) var(--intro-delay, 0ms) both;
   }
   html[data-motion='on'] .landing .intro-1 {
-    animation-delay: 0ms;
+    animation-delay: var(--intro-delay, 0ms);
   }
   html[data-motion='on'] .landing .intro-3 {
-    animation-delay: 300ms;
+    animation-delay: calc(var(--intro-delay, 0ms) + 300ms);
   }
   html[data-motion='on'] .landing .hero-description.intro {
     animation-name: landing-nudge;
   }
   html[data-motion='on'] .landing .intro-4 {
-    animation-delay: 380ms;
+    animation-delay: calc(var(--intro-delay, 0ms) + 380ms);
   }
   html[data-motion='on'] .landing .intro-5 {
-    animation-delay: 460ms;
+    animation-delay: calc(var(--intro-delay, 0ms) + 460ms);
   }
   html[data-motion='on'] .landing .intro-6 {
-    animation-delay: 540ms;
+    animation-delay: calc(var(--intro-delay, 0ms) + 540ms);
   }
   html[data-motion='on'] .landing .product-stage {
-    animation: landing-stage-in 1000ms var(--ease-out) 200ms both;
+    animation: landing-stage-in 1000ms var(--ease-out) calc(var(--intro-delay, 0ms) + 200ms) both;
   }
   html[data-motion='on'] .landing .float-card-top {
     animation:
-      landing-card-in 700ms var(--ease-out) 760ms both,
-      landing-card-bob 6s var(--ease-in-out) 1.6s infinite;
+      landing-card-in 700ms var(--ease-out) calc(var(--intro-delay, 0ms) + 760ms) both,
+      landing-card-bob 6s var(--ease-in-out) calc(var(--intro-delay, 0ms) + 1.6s) infinite;
   }
   html[data-motion='on'] .landing .float-card-bottom {
     animation:
-      landing-card-in 700ms var(--ease-out) 840ms both,
-      landing-card-bob 7s var(--ease-in-out) 2.2s infinite;
+      landing-card-in 700ms var(--ease-out) calc(var(--intro-delay, 0ms) + 840ms) both,
+      landing-card-bob 7s var(--ease-in-out) calc(var(--intro-delay, 0ms) + 2.2s) infinite;
   }
   html[data-motion='on'] .landing .chart-trace {
-    animation: landing-draw 1400ms var(--ease-in-out) 900ms both;
+    animation: landing-draw 1400ms var(--ease-in-out) calc(var(--intro-delay, 0ms) + 900ms) both;
   }
   html[data-motion='on'] .landing .scroll-cue svg {
-    animation: landing-cue 1.8s var(--ease-in-out) 1.6s infinite;
+    animation: landing-cue 1.8s var(--ease-in-out) calc(var(--intro-delay, 0ms) + 1.6s) infinite;
   }
   html[data-motion='on'] .landing .mobile-menu[open] nav {
     animation: landing-menu-in 180ms var(--ease-out);
@@ -1760,6 +1854,355 @@
   html[data-motion='on'] .landing .workflow-panel[data-offset='-1'],
   html[data-motion='on'] .landing .workflow-panel[data-offset='-2'] {
     transform: translate3d(0, -42px, 30px) rotateX(10deg) scale(1.02);
+  }
+
+  /* 00 — Opening curtain: once per session, motion on, decided before paint.
+     The hero hand-off delay stays for the whole page view (the overlay hides
+     itself with data-done) so running hero animations never jump. */
+  html[data-intro='play'] {
+    --intro-delay: 1450ms;
+  }
+  .site-intro {
+    display: none;
+  }
+  html[data-motion='on'][data-intro='play'] .site-intro:not([data-done]) {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: block;
+    overflow: hidden;
+    animation: intro-gone 1ms linear 2200ms forwards;
+  }
+  .intro-panel {
+    position: absolute;
+    inset: 0;
+  }
+  .intro-panel-ink {
+    background: var(--blue);
+  }
+  .intro-panel-paper {
+    display: grid;
+    place-items: center;
+    background-color: var(--paper);
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 39px,
+      rgb(36 67 232 / 0.075) 39px,
+      rgb(36 67 232 / 0.075) 40px
+    );
+  }
+  .intro-panel-paper::after {
+    content: '';
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: clamp(18px, 4.8vw, 70px);
+    width: 1px;
+    background: var(--margin-line);
+  }
+  .intro-stage {
+    position: relative;
+    display: grid;
+    justify-items: center;
+    gap: 22px;
+    width: min(760px, 88vw);
+    text-align: center;
+  }
+  .intro-chapter {
+    color: var(--blue);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+  }
+  .intro-line {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+  .intro-line path {
+    fill: none;
+    stroke: var(--blue);
+    stroke-width: 18;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 1 2;
+    stroke-dashoffset: 0;
+  }
+  .intro-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .intro-symbol {
+    display: grid;
+    place-items: center;
+    width: 72px;
+    height: 72px;
+    border-radius: 20px;
+    background: var(--blue);
+    color: #fff;
+    box-shadow: 0 18px 40px -18px rgb(36 67 232 / 0.75);
+  }
+  .intro-word-mask {
+    display: block;
+    overflow: hidden;
+    padding-block: 6px;
+  }
+  .intro-word {
+    position: relative;
+    z-index: 0;
+    display: block;
+    color: var(--ink);
+    font-size: clamp(2.6rem, 7.4vw, 4.6rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+  .intro-word .brand-period {
+    color: var(--blue);
+  }
+  .intro-word::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset-inline: -3%;
+    bottom: 14%;
+    height: 30%;
+    border-radius: 4px;
+    background: var(--marker);
+    transform-origin: left center;
+  }
+  .intro-tagline {
+    margin: 0;
+    color: var(--muted);
+    font-size: 1.05rem;
+  }
+  html[data-intro='play'] .intro-symbol {
+    animation: intro-pop 620ms var(--ease-out) 60ms both;
+  }
+  html[data-intro='play'] .intro-line path {
+    animation: intro-draw 1000ms var(--ease-in-out) 100ms both;
+  }
+  html[data-intro='play'] .intro-chapter {
+    animation: landing-rise 600ms var(--ease-out) 200ms both;
+  }
+  html[data-intro='play'] .intro-word {
+    animation: intro-word 700ms var(--ease-out) 320ms both;
+  }
+  html[data-intro='play'] .intro-word::after {
+    animation: intro-marker 520ms var(--ease-in-out) 760ms both;
+  }
+  html[data-intro='play'] .intro-tagline {
+    animation: landing-rise 600ms var(--ease-out) 560ms both;
+  }
+  html[data-intro='play'] .intro-stage {
+    animation:
+      intro-push 1200ms var(--ease-out) both,
+      intro-stage-out 320ms cubic-bezier(0.7, 0, 0.84, 0) 1140ms forwards;
+  }
+  html[data-intro='play'] .intro-panel-paper {
+    animation: intro-lift 760ms var(--ease-in-out) 1260ms forwards;
+  }
+  html[data-intro='play'] .intro-panel-ink {
+    animation: intro-lift 760ms var(--ease-in-out) 1380ms forwards;
+  }
+  @keyframes intro-pop {
+    from {
+      opacity: 0;
+      transform: scale(0.6) rotate(-12deg);
+    }
+    60% {
+      opacity: 1;
+      transform: scale(1.06) rotate(2deg);
+    }
+    to {
+      transform: scale(1) rotate(0);
+    }
+  }
+  @keyframes intro-draw {
+    from {
+      stroke-dashoffset: 1.02;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  @keyframes intro-word {
+    from {
+      transform: translate3d(0, 110%, 0);
+    }
+  }
+  @keyframes intro-push {
+    from {
+      transform: scale(0.94);
+    }
+  }
+  @keyframes intro-marker {
+    from {
+      transform: scaleX(0);
+    }
+  }
+  @keyframes intro-stage-out {
+    to {
+      opacity: 0;
+      transform: translate3d(0, -32px, 0) scale(0.98);
+    }
+  }
+  @keyframes intro-lift {
+    to {
+      transform: translate3d(0, -100%, 0);
+    }
+  }
+  @keyframes intro-gone {
+    to {
+      visibility: hidden;
+    }
+  }
+
+  /* 02 — Ribbon entrance: it draws itself along its own path (loop → fold →
+     check) with one continuous speed, settles from 3D, then a sheen passes. */
+  html[data-motion='on'] .landing[data-ready] .ink-section:not([data-play]) .ink-stroke {
+    stroke-dashoffset: 1.02;
+  }
+  html[data-motion='on'] .landing[data-ready] .ink-section:not([data-play]) .ink-enter {
+    opacity: 0;
+    transform: perspective(1400px) translate3d(0, 80px, -180px) rotateX(32deg) rotateY(-24deg)
+      rotateZ(-7deg) scale(0.88);
+  }
+  html[data-motion='on'] .landing[data-ready] .ink-section[data-play] .ink-enter {
+    animation: ink-enter 1700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  html[data-motion='on'] .landing[data-ready] .ink-section[data-play] .ink-stroke-loop {
+    animation: ink-draw 857ms cubic-bezier(0.5, 0, 0.75, 0.6) 120ms both;
+  }
+  html[data-motion='on'] .landing[data-ready] .ink-section[data-play] .ink-stroke-fold {
+    animation: ink-draw 223ms linear 977ms both;
+  }
+  html[data-motion='on'] .landing[data-ready] .ink-section[data-play] .ink-stroke-check {
+    animation: ink-draw 719ms cubic-bezier(0.25, 0.4, 0.3, 1) 1200ms both;
+  }
+  html[data-motion='on'] .landing[data-ready] .ink-section[data-play] .ink-sheen {
+    display: block;
+  }
+  html[data-motion='on'] .landing[data-ready] .ink-section[data-play] .ink-sheen::before {
+    animation: ink-sheen 1300ms var(--ease-in-out) 1800ms both;
+  }
+  html[data-motion='on'] .landing[data-ready] .ink-section[data-play] .ink-float {
+    animation: ink-float 7s var(--ease-in-out) 1950ms infinite;
+  }
+  html[data-motion='on'] .landing .ink-section[data-offscreen] .ink-float {
+    animation-play-state: paused;
+  }
+  html[data-motion='on'] .landing[data-ready] .ink-section[data-play] .meaning-list li::after {
+    content: '';
+    position: absolute;
+    inset-inline: 0;
+    bottom: -1px;
+    height: 2px;
+    background: var(--blue);
+    transform-origin: right center;
+    animation: ink-meter 857ms linear 120ms both;
+  }
+  html[data-motion='on'] .landing[data-ready] .ink-section[data-play] .meaning-list .mono {
+    animation: ink-num 560ms var(--ease-out) 120ms both;
+  }
+  html[data-motion='on']
+    .landing[data-ready]
+    .ink-section[data-play]
+    .meaning-list
+    li:nth-child(2)::after {
+    animation-duration: 223ms;
+    animation-delay: 977ms;
+  }
+  html[data-motion='on']
+    .landing[data-ready]
+    .ink-section[data-play]
+    .meaning-list
+    li:nth-child(2)
+    .mono {
+    animation-delay: 977ms;
+  }
+  html[data-motion='on']
+    .landing[data-ready]
+    .ink-section[data-play]
+    .meaning-list
+    li:nth-child(3)::after {
+    animation-duration: 719ms;
+    animation-delay: 1200ms;
+  }
+  html[data-motion='on']
+    .landing[data-ready]
+    .ink-section[data-play]
+    .meaning-list
+    li:nth-child(3)
+    .mono {
+    animation-delay: 1200ms;
+  }
+  @keyframes ink-draw {
+    from {
+      stroke-dashoffset: 1.02;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  @keyframes ink-enter {
+    from {
+      opacity: 0;
+      transform: perspective(1400px) translate3d(0, 80px, -180px) rotateX(32deg) rotateY(-24deg)
+        rotateZ(-7deg) scale(0.88);
+    }
+    28% {
+      opacity: 1;
+    }
+    to {
+      opacity: 1;
+      transform: perspective(1400px) translate3d(0, 0, 0) rotateX(0) rotateY(0) rotateZ(0) scale(1);
+    }
+  }
+  @keyframes ink-sheen {
+    from {
+      opacity: 0;
+      transform: translate3d(60%, 0, 0) skewX(-14deg);
+    }
+    18%,
+    82% {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+      transform: translate3d(-60%, 0, 0) skewX(-14deg);
+    }
+  }
+  @keyframes ink-float {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0) rotate(0);
+    }
+    50% {
+      transform: translate3d(0, -12px, 0) rotate(-0.8deg);
+    }
+  }
+  @keyframes ink-meter {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+  @keyframes ink-num {
+    from {
+      opacity: 0.3;
+      transform: scale(0.6);
+    }
+    60% {
+      transform: scale(1.18);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
 
   /* Idle hero loops pause off screen (ProductScene sets data-offscreen). */
@@ -1965,7 +2408,7 @@
     }
     html[data-motion='on'] .landing .float-card-top,
     html[data-motion='on'] .landing .float-card-bottom {
-      animation: landing-rise 700ms var(--ease-out) 700ms both;
+      animation: landing-rise 700ms var(--ease-out) calc(var(--intro-delay, 0ms) + 700ms) both;
     }
     .workflow-card {
       padding: 14px;

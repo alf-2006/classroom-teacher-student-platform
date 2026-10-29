@@ -109,6 +109,7 @@
 ## Restore original hero preview
 
 - [x] Restore the original live ProductScene preview and its original hero layout, sizing, floating cards and pointer depth instead of the rasterized/canvas image. Remove the hero image-sequence/pin wiring without reverting unrelated landing content, Egyptian copy, colors, auth design, account logic or database. Preserve the motion preference control and existing workflow tabs.
+
 ## Landing 180° — «دفتر المعمل» from the 4 videos + 7lf + Wasla
 
 - [x] Study the four YouTube videos (L-BLg_qDrx0, 6U1ViNsPBvc, k5vUYWBcLNc, nPxMF2YV77I) and both reference sites (7lf.vercel.app, waslatech.vercel.app) themselves; record observed techniques, colors, type and what is adopted/avoided, without copying their content, logos or assets.
@@ -117,3 +118,8 @@
 - [x] Motion must be justified, move elements with transform/opacity only (short `ease` hover color changes allowed per the review-animations standards), strong ease-out curves, interruptible transitions for state changes, 30–80ms staggers, no Arabic letter splitting, no scroll hijack/Lenis, gated hover, `prefers-reduced-motion` support, a reachable pause control, visible no-JS content and a lighter non-sticky mobile path; `WorkflowDemo` tabs stay keyboard-operable.
 - [x] Measure lab performance before/after under identical conditions (mobile 4× CPU/slow 4G and desktop, 3 cold runs, median), add no heavy animation libraries and report measured values and limits honestly.
 - [x] Review the motion against the review-animations standards with an independent read-only review, fix confirmed findings, verify 375/768/1280/1920 and save a checkpoint without publishing.
+
+## Site intro + strong ribbon entrance
+
+- [x] Give the 3D ribbon a strong entrance: it draws itself along its own path (loop → fold → check) in sync with the 01/02/03 list, settles from a 3D tilt, gets a light sheen, then idles with a gentle float (paused off screen), pointer depth on fine pointers and a «ارسمها تاني» replay. Keep the full static ribbon for reduced motion/pause and the same artwork as a no-JS fallback; load the transparent artwork lazily in one request.
+- [x] Add an opening intro for the site: paper curtain with the brand mark, the ribbon path drawn in ink, a highlighter under the wordmark and the tagline, then the paper and blue layers lift and hand off to the hero entrance. Once per session, never with reduced motion/pause/deep links, skippable by any key/click/wheel/touch without a jump, ended by CSS alone so it can never block the page, with no fake loading indicator.
