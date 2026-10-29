@@ -127,3 +127,7 @@
 ## Landing controls cleanup
 
 - [x] Remove the visible «وقّف الحركة» hero control and «ارسمها تاني» ribbon replay control; keep the live hero, automatic motion, reduced-motion behavior, and static/no-JS fallbacks unchanged.
+
+## Responsive intro fit cleanup
+
+- [x] Keep the opening intro centered and fully visible in RTL at short viewport heights; fit the complete ink path, wordmark, symbol and tagline inside 322×199 and 208×151 without horizontal overflow, while preserving the normal scale on 375px mobile and desktop.
