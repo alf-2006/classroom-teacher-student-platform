@@ -96,10 +96,16 @@
 
 - [x] Use natural friendly Egyptian Arabic throughout all existing UI pages, navigation, auth/invites, class controls, teacher/student workspaces, loading/error/empty states, validation, accessibility labels, metadata and custom 404. Use gentle situational humor without insults, mockery, profanity or jokes about security/errors/grades. Keep names/technical terms/user data and routes/schema/permissions unchanged; align shared actions and update text-dependent selectors/tests. Preserve explicit unfinished-feature and illustrative-data disclosures.
 
-## Video-inspired scroll cinema
+## Video-inspired scroll cinema — previous version
+
+تم تنفيذ المعايير التالية في النسخة السابقة. بعدها طلب المستخدم استرجاع معاينة الـHero الأصلية؛ حالة العرض الحالية محكومة ببند الاسترجاع أدناه، مش بإبقاء الـcanvas في أول الصفحة.
 
 - [x] Study the provided YouTube video itself, record the observed image-sequence/pin/reveal technique and adapt it to Classroom without copying external product assets or inventing working features.
 - [x] Replace the landing product presentation with an original scroll-linked WebP image sequence of the existing Classroom UI, with an immersive desktop sticky scene, reversible frame scrubbing, staged readable Egyptian Arabic captions and existing working CTA destinations.
 - [x] Retain current auth/roles/data/route/anchor/tab contracts; do not add scroll hijacking, mandatory loaders, made-up metrics/testimonials or animation to authentication forms.
 - [x] Use an SSR poster and bounded lazy frame fetch/decode; preserve visible content for no-JS/reduced-motion/pause/save-data, allow pause from a reachable control and use a lighter non-pinned mobile presentation.
 - [x] Check motion math, missing-frame fallback, cleanup and production build; use an independent read-only implementation review and record actual evidence and any unverified limits.
+
+## Restore original hero preview
+
+- [x] Restore the original live ProductScene preview and its original hero layout, sizing, floating cards and pointer depth instead of the rasterized/canvas image. Remove the hero image-sequence/pin wiring without reverting unrelated landing content, Egyptian copy, colors, auth design, account logic or database. Preserve the motion preference control and existing workflow tabs.

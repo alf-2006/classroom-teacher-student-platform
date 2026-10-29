@@ -12,8 +12,8 @@ import {
 import { redirect } from 'next/navigation'
 
 import { getCurrentContext } from '@/lib/auth/current-user'
-import { LandingMotion } from '@/components/landing/landing-motion'
-import { ScrollCinema } from '@/components/landing/scroll-cinema'
+import { LandingMotion, MotionControl } from '@/components/landing/landing-motion'
+import { ProductScene } from '@/components/landing/product-scene'
 import { WorkflowDemo } from '@/components/landing/workflow-demo'
 
 const outcomes = [
@@ -94,44 +94,60 @@ export default async function HomePage() {
               </details>
             </div>
           </header>
-        </div>
-        <ScrollCinema>
-          <div className="hero-copy">
-            <div className="hero-badge" data-reveal>
-              <span />
-              التعليم ليه مساحة. والمساحة ليها معنى.
+          <div className="hero-layout">
+            <div className="hero-copy">
+              <div className="hero-badge" data-reveal>
+                <span />
+                التعليم ليه مساحة. والمساحة ليها معنى.
+              </div>
+              <h1 className="hero-title" data-reveal data-delay="60">
+                <span>كل فصل ليه طريقته.</span>
+                <span className="title-coral">وإنت ماسك الدفّة.</span>
+              </h1>
+              <p className="hero-description" data-reveal data-delay="120">
+                وقت أقل في لَمّ الدوشة.
+                <br />
+                ووقت أكتر للي يستاهل: <strong>التعليم.</strong>
+              </p>
+              <div className="hero-actions" data-reveal data-delay="180">
+                <Link className="landing-button button-primary" href="/register">
+                  اعمل حساب طالب
+                  <ArrowLeft size={18} aria-hidden="true" />
+                </Link>
+                <a className="landing-button button-outline" href="#story">
+                  شوف مساحة الفصل
+                  <ArrowDown size={17} aria-hidden="true" />
+                </a>
+              </div>
+              <div className="hero-assurances" data-reveal data-delay="220">
+                <span>
+                  <Check size={15} aria-hidden="true" />
+                  عربي من أول حرف
+                </span>
+                <span>
+                  <Check size={15} aria-hidden="true" />
+                  صلاحيات بتحمي كل فصل
+                </span>
+              </div>
+              <div className="hero-motion-row">
+                <MotionControl />
+                <span className="hero-index number-font" aria-hidden="true">
+                  انزل واكتشف — 01
+                </span>
+              </div>
             </div>
-            <h1 className="hero-title" data-reveal data-delay="60">
-              <span>كل فصل ليه طريقته.</span>
-              <span className="title-coral">وإنت ماسك الدفّة.</span>
-            </h1>
-            <p className="hero-description" data-reveal data-delay="120">
-              وقت أقل في لَمّ الدوشة.
-              <br />
-              ووقت أكتر للي يستاهل: <strong>التعليم.</strong>
-            </p>
-            <div className="hero-actions" data-reveal data-delay="180">
-              <Link className="landing-button button-primary" href="/register">
-                اعمل حساب طالب
-                <ArrowLeft size={18} aria-hidden="true" />
-              </Link>
-              <a className="landing-button button-outline" href="#story">
-                شوف مساحة الفصل
-                <ArrowDown size={17} aria-hidden="true" />
-              </a>
-            </div>
-            <div className="hero-assurances" data-reveal data-delay="220">
-              <span>
-                <Check size={15} aria-hidden="true" />
-                عربي من أول حرف
-              </span>
-              <span>
-                <Check size={15} aria-hidden="true" />
-                صلاحيات بتحمي كل فصل
-              </span>
-            </div>
+            <ProductScene />
           </div>
-        </ScrollCinema>
+          <div className="hero-baseline">
+            <span>وضوح للمدرس. وخطوة سهلة للطالب.</span>
+            <a href="#outcomes" aria-label="شوف فكرة Classroom">
+              <ArrowDown size={18} aria-hidden="true" />
+            </a>
+            <span className="number-font" aria-hidden="true">
+              متظبّط على طريقتك في الشرح
+            </span>
+          </div>
+        </div>
       </section>
       <section id="outcomes" className="outcomes-section landing-container">
         <div className="section-intro">
@@ -210,7 +226,7 @@ export default async function HomePage() {
             </span>
             <div>
               <h3>الحركة بتشرح، مش بتشتّت</h3>
-              <p>انزل بالسكرول وشوف الواجهة وهي بتفتح لطبقات، أو وقّف الحركة وقت ما تحب.</p>
+              <p>جرّب الحكاية، حرّك الماوس فوق المعاينة، أو وقّف الحركة وقت ما تحب.</p>
             </div>
           </div>
         </div>
