@@ -1,0 +1,117 @@
+{
+  "label": "after-lcp",
+  "url": "http://127.0.0.1:3000/",
+  "date": "2026-10-29T09:26:04.667Z",
+  "browser": "156.0.8078.47",
+  "runs": 3,
+  "profiles": {
+    "mobile": {
+      "conditions": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "dpr": 3,
+        "mobile": true,
+        "cpu": 4,
+        "net": {
+          "latency": 150,
+          "down": 209715.2,
+          "up": 96000
+        }
+      },
+      "lcp": {
+        "median": 1460,
+        "min": 1444,
+        "max": 1736
+      },
+      "fcp": {
+        "median": 1460,
+        "min": 1444,
+        "max": 1736
+      },
+      "cls": {
+        "median": 0,
+        "min": 0,
+        "max": 0
+      },
+      "tbt": {
+        "median": 317,
+        "min": 298,
+        "max": 330
+      },
+      "p95Frame": {
+        "median": 16.7,
+        "min": 16.7,
+        "max": 16.8
+      },
+      "slowFramesPct": {
+        "median": 0,
+        "min": 0,
+        "max": 0.293
+      },
+      "kb": {
+        "Document": 15,
+        "Stylesheet": 16,
+        "Font": 205,
+        "Script": 149,
+        "Other": 1,
+        "Fetch": 4,
+        "Image": 22
+      },
+      "height": 7003
+    },
+    "desktop": {
+      "conditions": {
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "dpr": 1,
+        "mobile": false,
+        "cpu": 1,
+        "net": null
+      },
+      "lcp": {
+        "median": 256,
+        "min": 224,
+        "max": 364
+      },
+      "fcp": {
+        "median": 256,
+        "min": 224,
+        "max": 364
+      },
+      "cls": {
+        "median": 0,
+        "min": 0,
+        "max": 0
+      },
+      "tbt": {
+        "median": 17,
+        "min": 15,
+        "max": 26
+      },
+      "p95Frame": {
+        "median": 16.7,
+        "min": 16.7,
+        "max": 16.7
+      },
+      "slowFramesPct": {
+        "median": 0,
+        "min": 0,
+        "max": 0.27
+      },
+      "kb": {
+        "Font": 205,
+        "Document": 15,
+        "Stylesheet": 16,
+        "Script": 149,
+        "Other": 1,
+        "Fetch": 3,
+        "Image": 12
+      },
+      "height": 7587
+    }
+  }
+}

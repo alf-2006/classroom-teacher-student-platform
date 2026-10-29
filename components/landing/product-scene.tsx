@@ -11,12 +11,46 @@ import {
   UsersRound,
   ArrowUpLeft,
 } from 'lucide-react'
-import { useLandingMotion } from './landing-motion'
+import { clamp01, useLandingMotion, useScrollFrame } from './landing-motion'
 
 export function ProductScene() {
   const { enabled } = useLandingMotion()
   const scene = useRef<HTMLDivElement>(null)
   const surface = useRef<HTMLDivElement>(null)
+  const topCard = useRef<HTMLDivElement>(null)
+  const bottomCard = useRef<HTMLDivElement>(null)
+
+  /* Layers drift apart as the hero scrolls away, like a gentle teardown. */
+  useScrollFrame((y, viewport) => {
+    const progress = clamp01(y / (viewport * 0.9))
+    if (topCard.current)
+      topCard.current.style.translate = `${(progress * -42).toFixed(1)}px ${(progress * -64).toFixed(1)}px`
+    if (bottomCard.current)
+      bottomCard.current.style.translate = `${(progress * 38).toFixed(1)}px ${(progress * 56).toFixed(1)}px`
+    if (scene.current) scene.current.style.translate = `0 ${(progress * 36).toFixed(1)}px`
+  }, enabled)
+
+  useEffect(() => {
+    if (enabled) return
+    ;[topCard.current, bottomCard.current, scene.current].forEach((element) => {
+      if (element) element.style.translate = ''
+    })
+  }, [enabled])
+
+  /* Idle loops (floating cards, scroll cue) pause while the hero is off screen. */
+  useEffect(() => {
+    const hero = scene.current?.closest<HTMLElement>('.landing-hero')
+    if (!hero || !enabled) return
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) delete hero.dataset.offscreen
+      else hero.dataset.offscreen = 'true'
+    })
+    observer.observe(hero)
+    return () => {
+      observer.disconnect()
+      delete hero.dataset.offscreen
+    }
+  }, [enabled])
 
   useEffect(() => {
     const element = scene.current
@@ -57,9 +91,11 @@ export function ProductScene() {
   }, [enabled])
 
   return (
-    <div className="product-stage" ref={scene} data-reveal data-delay="180">
-      <div className="orbital-ring orbital-ring-one" aria-hidden="true" />
-      <div className="orbital-ring orbital-ring-two" aria-hidden="true" />
+    <div className="product-stage intro intro-4" ref={scene}>
+      <div className="stage-grid" aria-hidden="true" />
+      <span className="stage-label mono" lang="en" dir="ltr" aria-hidden="true">
+        FIG. 00 — LIVE PREVIEW
+      </span>
       <div className="product-depth" ref={surface}>
         <div className="product-window">
           <div className="product-toolbar">
@@ -135,11 +171,11 @@ export function ProductScene() {
                 <svg viewBox="0 0 340 104" role="img" aria-label="رسم يوضّح التقدّم خلال الأسبوع">
                   <defs>
                     <linearGradient id="chart-fill" x1="0" x2="0" y1="0" y2="1">
-                      <stop offset="0%" stopColor="#6557f5" stopOpacity=".22" />
-                      <stop offset="100%" stopColor="#6557f5" stopOpacity="0" />
+                      <stop offset="0%" stopColor="#2443e8" stopOpacity=".2" />
+                      <stop offset="100%" stopColor="#2443e8" stopOpacity="0" />
                     </linearGradient>
                   </defs>
-                  <path d="M0 26H340M0 58H340M0 90H340" stroke="#ebeaf3" fill="none" />
+                  <path d="M0 26H340M0 58H340M0 90H340" stroke="#e6e5dc" fill="none" />
                   <path
                     d="M2 82C30 84 24 55 58 62S97 90 119 58S143 17 172 40S207 70 232 28S271 52 290 23S313 8 338 12V104H2Z"
                     fill="url(#chart-fill)"
@@ -147,13 +183,13 @@ export function ProductScene() {
                   <path
                     className="chart-trace"
                     d="M2 82C30 84 24 55 58 62S97 90 119 58S143 17 172 40S207 70 232 28S271 52 290 23S313 8 338 12"
-                    stroke="#6557f5"
+                    stroke="#2443e8"
                     strokeWidth="3"
                     fill="none"
                     strokeLinecap="round"
                     pathLength="1"
                   />
-                  <circle cx="338" cy="12" r="4" fill="#6557f5" />
+                  <circle cx="338" cy="12" r="4" fill="#2443e8" />
                 </svg>
                 <div className="chart-labels">
                   <span>السبت</span>
@@ -181,7 +217,7 @@ export function ProductScene() {
             <span className="number-font">مساحتك / 01</span>
           </div>
         </div>
-        <div className="float-card float-card-top">
+        <div className="float-card float-card-top intro intro-5" ref={topCard}>
           <span className="float-icon">
             <UsersRound size={18} aria-hidden="true" />
           </span>
@@ -190,7 +226,7 @@ export function ProductScene() {
           </div>
           <ArrowUpLeft size={16} aria-hidden="true" />
         </div>
-        <div className="float-card float-card-bottom">
+        <div className="float-card float-card-bottom intro intro-6" ref={bottomCard}>
           <span className="float-icon mint">
             <Check size={19} aria-hidden="true" />
           </span>

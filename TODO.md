@@ -109,3 +109,11 @@
 ## Restore original hero preview
 
 - [x] Restore the original live ProductScene preview and its original hero layout, sizing, floating cards and pointer depth instead of the rasterized/canvas image. Remove the hero image-sequence/pin wiring without reverting unrelated landing content, Egyptian copy, colors, auth design, account logic or database. Preserve the motion preference control and existing workflow tabs.
+## Landing 180° — «دفتر المعمل» from the 4 videos + 7lf + Wasla
+
+- [x] Study the four YouTube videos (L-BLg_qDrx0, 6U1ViNsPBvc, k5vUYWBcLNc, nPxMF2YV77I) and both reference sites (7lf.vercel.app, waslatech.vercel.app) themselves; record observed techniques, colors, type and what is adopted/avoided, without copying their content, logos or assets.
+- [x] Transform the landing look 180°: light notebook-paper identity with ballpoint-blue ink, highlighter accent, framed editorial layout, numbered mono chapters, section rail, word-by-word manifesto, sticky scroll-linked story on desktop, one marquee, 3D continuous-ribbon mark and blue CTA block — with strong, correct motion.
+- [x] Keep the hero preview live (`ProductScene` DOM with floating cards and pointer depth), not a rasterized/tilted image or canvas sequence; keep `/login`, `/register`, anchors `#home/#outcomes/#story/#questions/#start`, Egyptian copy tone, demo-data labels and the unfinished-feature FAQ disclosure.
+- [x] Motion must be justified, move elements with transform/opacity only (short `ease` hover color changes allowed per the review-animations standards), strong ease-out curves, interruptible transitions for state changes, 30–80ms staggers, no Arabic letter splitting, no scroll hijack/Lenis, gated hover, `prefers-reduced-motion` support, a reachable pause control, visible no-JS content and a lighter non-sticky mobile path; `WorkflowDemo` tabs stay keyboard-operable.
+- [x] Measure lab performance before/after under identical conditions (mobile 4× CPU/slow 4G and desktop, 3 cold runs, median), add no heavy animation libraries and report measured values and limits honestly.
+- [x] Review the motion against the review-animations standards with an independent read-only review, fix confirmed findings, verify 375/768/1280/1920 and save a checkpoint without publishing.

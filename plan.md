@@ -130,3 +130,29 @@ Route Groups لا تظهر في URL؛ لذلك مسارات الطالب تحت 
 المستخدم حدّد معاينة الواجهة في الصورة وطلب رجوعها زي ما كانت. نرجّع بلوك الـHero الأصلي بمكوّن ProductScene الحي، بنفس حجم الواجهة والكروت العائمة وتفاعل الماوس، بدل canvas/screenshot المائل. لا نرجع المشروع كله ولا نغيّر بقية الصفحة أو الألوان أو اللغة المصرية أو الدخول والتسجيل. مشهد السكرول السابق يظل محفوظًا في الملفات/تاريخ Git لكنه غير مربوط بالـHero في النسخة الحالية؛ لا تحميل إطارات ولا pin طويل هنا. نحافظ على تحسين زر اختيار الحركة وشريط التقدم والقصة التفاعلية الأصلية.
 
 تم الاسترجاع من بلوك Hero في 59b081c فقط، مع الإبقاء على بقية الصفحة وتحسين اختيار الحركة. تم التحقق من العرض الحي والكروت العائمة وعدم وجود cinema-canvas أو poster في HTML. نجح 34 اختبارًا وTypeScript وlint وbuild. المعاينة الحالية تشغّل `NEXT_BUILD_DIR=.next-production pnpm start` على 3000؛ تقرير الفيديو السابق يصف تجربة النسخة السابقة المحفوظة وليس الـHero الحالي.
+
+## تحويل الـLanding 180 درجة — «دفتر المعمل» (29 أكتوبر 2026)
+
+المرجع: 4 فيديوهات YouTube وموقعي 7lf وWasla Tech؛ الخلاصة في `docs/research/README.md`. الاتجاه مأخوذ من مراجع المستخدم مباشرة.
+
+- **Design Movement**: Swiss editorial-tech على ورق كراسة؛ إطار صفحة تقني بزوايا crosshair وسطور كراسة وهامش أحمر يمين زي الكراسة العربي.
+- **Core Principles**: ورق فاتح وحبر واحد مسيطر؛ كل قسم «فصل» مرقّم بخط mono؛ الحركة بتحكي الرحلة (دعوة ← فصل ← تسليم ← قرار)؛ الواجهة الحية هي البطل مش الصور.
+- **Color Philosophy**: ورق `#F6F5F0`، حبر نص `#0F1422`، أزرق القلم الجاف `#2443E8`، هايلايتر `#FFD43B` للكلمة المفتاحية بس، وأحمر هامش `#E5484D` خفيف كخط زخرفي فقط.
+- **Layout Paradigm**: أعمدة غير متماثلة جوه إطار؛ مشهد sticky للحكاية؛ صفوف مسطّرة بدل شبكة كروت؛ marquee واحد؛ CTA بلوك أزرق مدوّر.
+- **Signature Elements**: ضربة هايلايتر تحت الكلمة المفتاحية؛ rail حبر بيتملا مع السكرول بعُقد للفصول؛ علامة شريط ثلاثي الأبعاد متصل بينتهي بعلامة صح.
+- **Interaction Philosophy**: كل حاجة مقروءة من غير JS؛ سكرول المتصفح الطبيعي (لا Lenis ولا hijack)؛ التبويبات شغالة بالكيبورد؛ زر إيقاف الحركة ظاهر.
+- **Animation**: intro الـHero بـCSS من أول paint (سطر بسطر بـclip-path، 700ms، `cubic-bezier(0.23,1,0.32,1)`، stagger 80ms، هايلايتر scaleX من اليمين)؛ reveal بـtransitions قابلة للمقاطعة (opacity + translateY 24px)؛ مانيفستو كلمة بكلمة (ممنوع تقسيم الحروف)؛ حكاية sticky مربوطة بالسكرول على الديسكتوب بطبقات حية بعمق؛ marquee linear بيقف برا الشاشة؛ press `scale(0.97)` 160ms؛ hover مقفول على `(hover: hover) and (pointer: fine)`؛ transform/opacity بس؛ reduced-motion = تلاشي خفيف من غير حركة مكان.
+- **Typography System**: IBM Plex Sans Arabic (عناوين 700، متن 400/600) + Manrope للأرقام والعلامة + mono النظام للـeyebrows اللاتينية. ممنوع letter-spacing على العربي.
+- **Brand Essence**: Classroom مساحة فصل بالعربي للمدرّس والطالب، كل خطوة فيها واضحة من الدعوة للقرار. واضح، دافي، شاطر.
+- **Brand Voice**: مصري خفيف وواثق: «الفصل مش جروب واتساب.» / «خط واحد. من أول دعوة لحد القرار.»
+- **Wordmark & Logo**: رمز الكتاب بعلامة صح + `Classroom.` بنقطة زرقا، وعلامة الشريط المتصل كعنصر قصة.
+- **Signature Brand Color**: أزرق القلم الجاف `#2443E8`.
+
+### التنفيذ والبنية
+
+- `app/page.tsx` يحتفظ بالوجهات (`/login`, `/register`) والـanchors (`#home`, `#outcomes`, `#story`, `#questions`, `#start`) و`<ProductScene />` جوه `hero-layout` و`<WorkflowDemo />` و`<MotionControl />`.
+- `landing-motion.tsx`: سياق الحركة + scroll loop واحد (passive + rAF) بقياس offsets عند resize بدل قراءة layout كل frame، وreveal بـIntersectionObserver، وتفضيل الإيقاف في `localStorage`.
+- سكربت inline صغير يحط `data-motion="on"` على `<html>` قبل أول paint لو مفيش تقليل حركة، فمفيش flash، ومن غير JS المحتوى ظاهر.
+- مكونات جديدة: `manifesto.tsx`، `section-rail.tsx`، `marquee.tsx`، `ink-mark.tsx`، مع إعادة تلبيس `product-scene.tsx` و`workflow-demo.tsx` (3 لوحات stacked بعمق وsticky على الديسكتوب).
+- `app/landing.css` يتكتب من جديد، مع الإبقاء على `landing-button`/`button-primary` المستخدمة في `not-found.tsx`.
+- صفحات الحسابات ولوحات التحكم والـauth والـDB ما تتلمسش. مفيش مكتبات جديدة. القياس بـ`classroom-qa/perf-lab.cjs` مقابل `perf/baseline.json`.

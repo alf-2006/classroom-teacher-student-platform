@@ -1,0 +1,115 @@
+{
+  "label": "baseline",
+  "url": "http://127.0.0.1:3000/",
+  "date": "2026-10-29T08:56:37.004Z",
+  "browser": "156.0.8078.47",
+  "runs": 3,
+  "profiles": {
+    "mobile": {
+      "conditions": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "dpr": 3,
+        "mobile": true,
+        "cpu": 4,
+        "net": {
+          "latency": 150,
+          "down": 209715.2,
+          "up": 96000
+        }
+      },
+      "lcp": {
+        "median": 1428,
+        "min": 1272,
+        "max": 1452
+      },
+      "fcp": {
+        "median": 1428,
+        "min": 1272,
+        "max": 1452
+      },
+      "cls": {
+        "median": 0,
+        "min": 0,
+        "max": 0
+      },
+      "tbt": {
+        "median": 299,
+        "min": 232,
+        "max": 362
+      },
+      "p95Frame": {
+        "median": 16.8,
+        "min": 16.8,
+        "max": 16.8
+      },
+      "slowFramesPct": {
+        "median": 0,
+        "min": 0,
+        "max": 0.133
+      },
+      "kb": {
+        "Document": 13,
+        "Stylesheet": 14,
+        "Font": 220,
+        "Script": 147,
+        "Other": 1,
+        "Fetch": 4
+      },
+      "height": 5288
+    },
+    "desktop": {
+      "conditions": {
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "dpr": 1,
+        "mobile": false,
+        "cpu": 1,
+        "net": null
+      },
+      "lcp": {
+        "median": 244,
+        "min": 208,
+        "max": 268
+      },
+      "fcp": {
+        "median": 244,
+        "min": 208,
+        "max": 268
+      },
+      "cls": {
+        "median": 0,
+        "min": 0,
+        "max": 0
+      },
+      "tbt": {
+        "median": 14,
+        "min": 14,
+        "max": 20
+      },
+      "p95Frame": {
+        "median": 16.7,
+        "min": 16.7,
+        "max": 16.8
+      },
+      "slowFramesPct": {
+        "median": 0,
+        "min": 0,
+        "max": 0
+      },
+      "kb": {
+        "Document": 13,
+        "Stylesheet": 14,
+        "Font": 220,
+        "Script": 147,
+        "Other": 1,
+        "Fetch": 1
+      },
+      "height": 3723
+    }
+  }
+}
