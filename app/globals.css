@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 @import './landing.css';
 @import './account.css';
+@import './scroll-cinema.css';
 
 :root {
   --background: #f8f8fc;

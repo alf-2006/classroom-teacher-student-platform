@@ -15,6 +15,7 @@ const MotionContext = createContext({
   enabled: false,
   paused: false,
   reduced: false,
+  override: false,
   toggle: () => {},
 })
 const subscribe = (callback: () => void) => {
@@ -27,11 +28,21 @@ export const useLandingMotion = () => useContext(MotionContext)
 
 export function LandingMotion({ children }: { children: ReactNode }) {
   const [paused, setPaused] = useState(false)
-  const reduced = useSyncExternalStore(subscribe, getReduced, () => true)
+  const [optedIn, setOptedIn] = useState(false)
+  const systemReduced = useSyncExternalStore(subscribe, getReduced, () => true)
+  const reduced = systemReduced && !optedIn
   const enabled = !paused && !reduced
   const root = useRef<HTMLElement>(null)
   const progress = useRef<HTMLDivElement>(null)
-
+  function toggle() {
+    if (reduced) {
+      setOptedIn(true)
+      setPaused(false)
+    } else if (systemReduced && optedIn) {
+      setOptedIn(false)
+      setPaused(false)
+    } else setPaused((value) => !value)
+  }
   useEffect(() => {
     const container = root.current
     if (!container || !enabled) return
@@ -45,8 +56,8 @@ export function LandingMotion({ children }: { children: ReactNode }) {
           const delay = Number(element.dataset.delay ?? 0)
           const animation = element.animate(
             [
-              { opacity: 0, transform: 'translate3d(0, 28px, 0)' },
-              { opacity: 1, transform: 'translate3d(0, 0, 0)' },
+              { opacity: 0, transform: 'translate3d(0,28px,0)' },
+              { opacity: 1, transform: 'translate3d(0,0,0)' },
             ],
             { duration: 800, delay, easing: 'cubic-bezier(.23,1,.32,1)', fill: 'backwards' },
           )
@@ -63,8 +74,8 @@ export function LandingMotion({ children }: { children: ReactNode }) {
       animations.forEach((animation) => animation.cancel())
     }
   }, [enabled])
-
   useEffect(() => {
+    if (!enabled) return
     let frame = 0
     const update = () => {
       frame = 0
@@ -81,11 +92,10 @@ export function LandingMotion({ children }: { children: ReactNode }) {
       window.removeEventListener('scroll', onScroll)
       cancelAnimationFrame(frame)
     }
-  }, [])
-
+  }, [enabled])
   return (
     <MotionContext.Provider
-      value={{ enabled, paused, reduced, toggle: () => setPaused((value) => !value) }}
+      value={{ enabled, paused, reduced, override: systemReduced && optedIn, toggle }}
     >
       <main id="main-content" ref={root} className="landing" data-motion={enabled ? 'on' : 'off'}>
         <div className="reading-progress" aria-hidden="true">
@@ -98,21 +108,34 @@ export function LandingMotion({ children }: { children: ReactNode }) {
 }
 
 export function MotionControl() {
-  const { paused, reduced, toggle } = useLandingMotion()
+  const { paused, reduced, override, toggle } = useLandingMotion()
   const Icon = reduced ? Wind : paused ? Play : Pause
+  const label = reduced
+    ? 'جرّب مؤثرات السكرول رغم إعداد تقليل الحركة'
+    : override
+      ? 'ارجع للمعاينة الثابتة'
+      : paused
+        ? 'شغّل حركة الصفحة'
+        : 'وقّف حركة الصفحة'
   return (
     <button
       className="motion-control"
       type="button"
       onClick={toggle}
-      disabled={reduced}
       aria-pressed={paused}
-      aria-label={
-        reduced ? 'الحركة أخف، زي إعدادات جهازك' : paused ? 'شغّل حركة الصفحة' : 'وقّف حركة الصفحة'
-      }
+      aria-label={label}
+      title={label}
     >
       <Icon aria-hidden="true" size={15} />
-      <span>{reduced ? 'حركة أهدى' : paused ? 'شغّل الحركة' : 'وقّف الحركة'}</span>
+      <span>
+        {reduced
+          ? 'جرّب المؤثرات'
+          : override
+            ? 'رجّع المعاينة الثابتة'
+            : paused
+              ? 'شغّل الحركة'
+              : 'وقّف الحركة'}
+      </span>
     </button>
   )
 }

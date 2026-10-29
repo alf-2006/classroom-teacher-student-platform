@@ -45,3 +45,16 @@ NEXT_BUILD_DIR=.next-login pnpm start
 كل من `.next-login` و`.next-production` مخرجات build مستثناة من Git. إعدادات Supabase ومسار الدخول لم تتغير.
 
 آخر نسخة بعد تصحيحات مراجعة النبرة بتشتغل حاليًا بأمر `NEXT_BUILD_DIR=.next-production pnpm start` على 3000. `.next-login` كان مخرج build معزول للنسخة الأولى، ومش هو المخرج الحالي.
+
+## تجربة السكرول المرتبطة بالإطارات
+
+آخر نسخة للمشهد بتستخدم `.next-production` على المنفذ الرئيسي 3000. حصل بناء معزول أولًا داخل `.next-login`، وبعد تصحيحات pause وData Saver والتشغيل الاختياري اتبنت النسخة النهائية داخل `.next-production`. الصورة الثابتة والإطارات موجودة في `public/scroll-sequence/v1`، ومن غير blocking loader. تشغيل الخدمة مش نشر عام؛ `auto_publish` فضل مقفول.
+
+الـbuild النهائي المطابق لنسخة Git بعد تحديث جملة شرح السكرول اتجهّز داخل `.next-login`، وهو اللي شغّال حاليًا على 3000:
+
+```bash
+NEXT_BUILD_DIR=.next-login pnpm build
+NEXT_BUILD_DIR=.next-login pnpm start
+```
+
+اسم المجلد للتفريق بين build والخدمة القديمة، ومش معناه إن النسخة فيها login بس؛ ده build كامل للموقع.
