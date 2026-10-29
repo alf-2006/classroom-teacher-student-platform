@@ -83,6 +83,9 @@ describe('site intro decision', () => {
     expect(css).not.toMatch(/data-intro='done'/)
     expect(css).toMatch(/animation: intro-gone 1ms linear \d+ms forwards/)
     expect(page).toContain('<SiteIntro />')
+    expect(
+      readFileSync(new URL('../components/landing/site-intro.tsx', import.meta.url), 'utf8'),
+    ).toContain('className="intro-ribbon"')
   })
 })
 

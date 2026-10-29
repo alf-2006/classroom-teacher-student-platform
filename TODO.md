@@ -131,3 +131,7 @@
 ## Responsive intro fit cleanup
 
 - [x] Keep the opening intro centered and fully visible in RTL at short viewport heights; fit the complete ink path, wordmark, symbol and tagline inside 322×199 and 208×151 without horizontal overflow, while preserving the normal scale on 375px mobile and desktop.
+
+## Intro ribbon artwork
+
+- [x] Use the actual blue-and-gold 3D ribbon artwork in the opening intro instead of the traced flat blue line; keep the same responsive fit, wordmark hand-off, and short-viewport behavior.

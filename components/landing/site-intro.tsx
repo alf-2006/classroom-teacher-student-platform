@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from 'react'
 import { BookOpenCheck } from 'lucide-react'
-import { RIBBON_PATH, RIBBON_VIEWBOX } from './ribbon-path'
 
 /** Time the skip should still take, so the curtain lifts instead of vanishing. */
 const SKIP_MS = 380
@@ -79,13 +78,19 @@ export function SiteIntro() {
           <span className="intro-chapter mono" lang="en" dir="ltr">
             00 — OPENING THE CLASS
           </span>
-          <svg
-            className="intro-line"
-            viewBox={`0 0 ${RIBBON_VIEWBOX.width} ${RIBBON_VIEWBOX.height}`}
-            focusable="false"
-          >
-            <path d={RIBBON_PATH} pathLength={1} />
-          </svg>
+          {/* The intro uses the actual 3D ribbon artwork, not a flat traced line. */}
+          {/* eslint-disable-next-line @next/next/no-img-element -- eager, pre-sized local hero art */}
+          <img
+            className="intro-ribbon"
+            src="/landing/ink-ribbon-1200.webp"
+            srcSet="/landing/ink-ribbon-720.webp 720w, /landing/ink-ribbon-1200.webp 1200w"
+            sizes="88vw"
+            width={1200}
+            height={552}
+            alt="شريط أزرق ثلاثي الأبعاد بعلامة صح"
+            fetchPriority="high"
+            decoding="async"
+          />
           <div className="intro-brand">
             <span className="intro-symbol">
               <BookOpenCheck size={30} strokeWidth={2.1} />
